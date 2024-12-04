@@ -1,4 +1,4 @@
-<?php /* Template Name: Domains Page */ get_header(); ?>
+<?php /* Template Name: Quiz Page */ get_header(); ?>
 
 <div class="container">
     <?php echo do_shortcode(the_content()); ?>
