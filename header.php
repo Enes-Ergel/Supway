@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Style.css">
     
     <?php wp_head(); ?> 
-    <title>Trova</title>
+    <title>Supway</title>
 </head>
 
 <body <?php body_class(); ?>>
