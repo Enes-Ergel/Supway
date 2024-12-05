@@ -18,22 +18,18 @@
 }
 
 .btn-connecter {
-    background-color: #17ab5b;
+    background-color: #0097b2;
     color: #ffffff;
-    border-radius: 20px;
-}
-.btn-connecter:hover {
-   
+    border-radius: 50px;
 }
 
+
 .btn-inscrire {
-    color: white;
-    background-color: #001F3F;
-    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    background-color: #BFDD7D;
+    border-radius: 50px;
 }
-.btn-inscrire:hover {
-    
-}
+
 
 .navbar-nav .nav-link.active {
     color: #17ab5b; 

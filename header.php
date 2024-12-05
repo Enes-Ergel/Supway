@@ -4,7 +4,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="style.css">
     
     <?php wp_head(); ?> 
     <title>Supway</title>
@@ -22,7 +22,7 @@
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <?php echo esc_html(get_bloginfo('name')); ?>
             </a> 
-
+            
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'header',
