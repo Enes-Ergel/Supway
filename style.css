@@ -1,1 +1,63 @@
 /* Theme Name: Supway */
+
+.contenedor1 {
+    background-color: #001F3F;
+    width: 1481px;  
+    height: 500px;
+    display: grid; 
+    grid-template-columns:  repeat(8, 1fr);
+    gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+}
+.contenedor2 {
+    background-color: #17ab5b;
+    width: 1481px;  
+    height: 500px; 
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.btn-connecter {
+    background-color: #17ab5b;
+    color: #ffffff;
+    border-radius: 20px;
+}
+.btn-connecter:hover {
+   
+}
+
+.btn-inscrire {
+    color: white;
+    background-color: #001F3F;
+    border-radius: 20px;
+}
+.btn-inscrire:hover {
+    
+}
+
+.navbar-nav .nav-link.active {
+    color: #17ab5b; 
+}
+.navbar-nav .nav-link.active:hover {
+    color: #001F3F; 
+}
+
+.titulo1 {
+    
+    color: #ffffff;
+    font-size: 96px; 
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 2;
+}
+
+.titulo2 {
+    
+    color: #ffffff;
+    font-size: 96px; 
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row: 2;
+    
+}
