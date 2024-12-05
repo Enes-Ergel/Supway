@@ -2,7 +2,15 @@
 <?php get_header(); ?>
 
       hola enes
-   
+      <div class="contenedor1">
+       <div class="textbutton">
+          <h1 class="titulo1">Supway, la voie du supérieur</h1>
+          <p class="textocontenedor1"> Tu te demandes quoi faire après la rhéto ? Ou tu cherches  à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway ! </p>
+          
+            <button type="button" id= "azul" class="btn btn-inscrire me-2 ">Se connecter</button>
+            <button type="button" id= "azul" class="btn btn-inscrire me-2 ">S'inscrire</button>
+          
+      </div>
 
   
   <?php
