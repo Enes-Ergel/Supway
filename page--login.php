@@ -18,6 +18,8 @@ get_header();
 		
     <label for="pwd">Mot de passe</label>
 		<input type="password" name="pwd" id="pwd">
+
+	<p>Vous n’êtes pas encore inscrit ? <a href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>">S’inscrire</a></p>
 		
     <input type="submit" name="submit" value="Se connecter">
 		<input type="hidden" name="redirect_to" value="<?php echo esc_url( home_url('/') ); ?>">
