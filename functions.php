@@ -17,6 +17,13 @@ add_action( 'after_setup_theme', 'instalarTemplate' ); //le estoy pidiendo de ha
     
 
 */
+
+add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
+add_theme_support('menus');
+
+register_nav_menu('header', 'En tête du menu');
+register_nav_menu('footer', 'En pied du menu');
 function styles_scripts()
 {
   wp_enqueue_style(
@@ -42,6 +49,7 @@ function styles_scripts()
     1,
     true
   );
+  wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'styles_scripts');
 
@@ -129,3 +137,17 @@ function create_account(){
 	}
 }
 add_action('init', 'create_account');
+
+
+
+function create_post_type()
+{
+  register_post_type('quiz', [
+    'labels' => ['name' => 'Quiz'],
+    'supports' => ['title', 'editor', 'thumbnail'],
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => ['slug' => 'quiz']
+  ]);
+}
+add_action('init', 'create_post_type');
