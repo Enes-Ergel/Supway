@@ -38,6 +38,6 @@ if ( isset($_GET['sent']) ){
 	<input type="submit" name="submit" value="Enviar">
 </form>
 
-<?php get_footer(); ?>
+
 
 <?php get_footer(); ?>
