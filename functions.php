@@ -138,7 +138,6 @@ function create_account(){
 }
 add_action('init', 'create_account');
 
-<<<<<<< HEAD
 
 
 function create_post_type()
@@ -152,7 +151,6 @@ function create_post_type()
   ]);
 }
 add_action('init', 'create_post_type');
-=======
 //Contact
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
@@ -176,4 +174,3 @@ function send_mail_data() {
 
 	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
 }
->>>>>>> a9dcd573b550217ff8df365a1c7a832e932a7817

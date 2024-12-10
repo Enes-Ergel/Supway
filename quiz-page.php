@@ -125,7 +125,7 @@
                         </label>
                     <?php endforeach; ?>
                 </div>
-            <?php $q++; $questionsCount endwhile; ?>
+            <?php $q++; $questionsCount++; endwhile; ?>
             <!-- foreach ($questions as $index => $q) {
                 echo '<div class="quiz-question">';
                 echo '<h4>Question ' . ($index + 1) . ': ' . esc_html($q['question']) . '</h4>';
