@@ -1,63 +1,271 @@
 /* Theme Name: Supway */
 
-.contenedor1 {
-    background-color: #001F3F;
-    width: 1481px;  
-    height: 500px;
-    display: grid; 
-    grid-template-columns:  repeat(8, 1fr);
-    gap: 10px;
-    grid-template-rows: repeat(3, 1fr);
-}
-.contenedor2 {
-    background-color: #17ab5b;
-    width: 1481px;  
-    height: 500px; 
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-}
-
+/* Nav bar */
 .btn-connecter {
-    background-color: #17ab5b;
+    background-color: #0097b2;
     color: #ffffff;
-    border-radius: 20px;
-}
-.btn-connecter:hover {
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-danger {
+    border-radius: 50px;
+    background-color: #B21200;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  .btn-inscrire {
+    color: rgb(0, 0, 0);
+    background-color: #BFDD7D;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-inscrire:hover {
+    background-color: #D4E9A0;
    
-}
-
-.btn-inscrire {
+  }
+  
+  .btn-connecter:hover {
+    background-color: #33B7D1;
+   
+  }
+  
+  /* Header */
+  
+  
+  
+  .imagelogo {
+    width: 210px ;
+    height: 39px ;
+  }
+  
+  .contenedor1 {
+    background-color: #ffffff;
+    width: 1440px;  
+    height: 598px;
+    display: grid; 
+    grid-template-columns:  repeat(12, 1fr);
+    gap: 10px;
+    grid-template-rows: repeat(4, 1fr);
+    
+  }
+  .contenedor2 {
+    background-color: #15b200;
+    width: 1440px;  
+    height: 615px;
+    display: grid; 
+    grid-template-columns:  repeat(12, 1fr);
+    gap: 10px;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  
+  .titulo1 {
+    
+    color: #0097B2;
+    font-size: 36px; 
+   
+  }
+  
+  .textocontenedor2 {
+    color: #bcbcbc;
+    font-size: 24px;
+    
+  }
+  
+  .texto {
+    width: 600px;
+    height: 189px;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 8 ;
+    grid-column-end: 12 ;
+  }
+  
+  .textbutton {
+    width: 603px;
+    height: 284px;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 6;
+  }
+  
+  #azul {
+    background-color: #0097B2;
+    width: 196px;
+    height: 68px;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 24px;
+  }
+  
+  .textocontenedor1 {
+    font-size: 24px;
+  }
+  
+  
+  /*Contact*/
+  .titrenouscontacter {
+    color: #0097B2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #0097B2;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  
+  .blockdetexte {
+    margin-bottom: 15px;
+  }
+  
+  
+  form label {
+    display: block;
+    margin-bottom: 3px;
+    color: #0097B2;
+  }
+  
+  
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #0097B2;
+    border-radius: 50px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  form input[type="text"]:focus,
+  form input[type="email"]:focus,
+  form input[type="password"]:focus,
+  form textarea:focus {
+    border-color: #BFDD7D;
+    outline: none;
+  }
+  
+  
+  form input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  
+  form input[type="submit"] {
+    background-color: #BFDD7D;
     color: white;
-    background-color: #001F3F;
-    border-radius: 20px;
-}
-.btn-inscrire:hover {
-    
-}
-
-.navbar-nav .nav-link.active {
-    color: #17ab5b; 
-}
-.navbar-nav .nav-link.active:hover {
-    color: #001F3F; 
-}
-
-.titulo1 {
-    
-    color: #ffffff;
-    font-size: 96px; 
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 2;
-}
-
-.titulo2 {
-    
-    color: #ffffff;
-    font-size: 96px; 
-    grid-column-start: 6;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;    
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #0097B2;
+  } 
+  
+  
+  form a {
+    color: #0097B2;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  form a:hover {
+    text-decoration: underline;
+  }
+  
+  /*footer*/
+  
+  .footer {
+    width: 1440px;
+    height: 258px;
+    background-color: #CAE9EB;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-row: repeat (3, 1fr);
+  }
+  
+  .buttonfooter {
+    width:238px ;
+    height: 44px ;
+    background-color: #FFFFFF ;
+    border-radius: 50px ;
+    color: black;
+    font-weight:bold ;
+    font-size: 20px;
+    opacity: 61%;
+    text-align: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  .mentions {
+    grid-column-start: 8;
     grid-column-end: 9;
     grid-row: 2;
+  }
+  
+  .inscrire {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 2;
     
-}
+  }
+  
+  .seconnecter {
+    grid-column-start: 2;
+    grid-column-end: 4; 
+    grid-row: 2;
+  }
+  
+  .texte {
+    color: black;
+    text-decoration: none;
+    font-weight:bold ;
+  }
+  
+  .mentionslegales {
+    grid-column-start: 8;
+    grid-column-end: 10;
+    grid-row: 2;
+  }
+  
+  /* Se connecter */
+  .titreseconnecter {
+    color: #0097B2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #textepasinscrit {
+    color: black;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #buttoninscrit {
+    display: flex;
+    justify-content: center;
+  }
