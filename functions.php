@@ -112,22 +112,36 @@ add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
 
 function create_account(){
 	//You may need some data validation here
-	$user = ( isset($_POST['uname']) ? $_POST['uname'] : '' );
-	$pass = ( isset($_POST['upass']) ? $_POST['upass'] : '' );
-	$email = ( isset($_POST['uemail']) ? $_POST['uemail'] : '' );
+  $fname  = ( isset($_POST['fname']) && !empty($_POST['fname']) ) ? sanitize_text_field( $_POST['fname'] ) : '';
+  $lname  = ( isset($_POST['lname']) && !empty($_POST['lname']) ) ? sanitize_text_field( $_POST['lname'] ) : '';
+  $user   = ( isset($_POST['uname']) && !empty($_POST['uname']) ) ? sanitize_user( $_POST['uname'] ) : '';
+  $email  = ( isset($_POST['uemail']) && !empty($_POST['uemail']) ) ? sanitize_email( $_POST['uemail'] ) : '';
+  $pass   = ( isset($_POST['upass']) && !empty($_POST['upass']) ) ? sanitize_text_field( $_POST['upass'] ) : '';
+  $repass = ( isset($_POST['repass']) && !empty($_POST['repass']) ) ? sanitize_text_field( $_POST['repass'] ) : '';
+
+  
+
+if ( $pass !== $repass ) {
+    wp_die('Les mots de passe ne correspondent pas.');
+}
+
+  if ( username_exists( $user ) || email_exists( $email ) ) {
+     wp_die('Le nom de utilisateur ou adresse électronique est déjà enregistré');
+}
 
 	if ( !username_exists( $user )  && !email_exists( $email ) ) {
 		$user_login = wp_slash( $user );
 		$user_email = wp_slash( $email );
 		$user_pass = $pass;
 
-		$userdata = compact('user_login', 'user_email', 'user_pass');
+     // Agregar nombre y apellido al arreglo de datos
+		$userdata = compact('user_login', 'user_email', 'user_pass', 'first_name', 'last_name');
 		$user_id = wp_insert_user($userdata);
 
 		if( !is_wp_error($user_id) ) {
 			// user has been created
 			$user = new WP_User( $user_id );
-			$user->set_role( 'contributor' ); // type d'user que je veux a ce moment la 
+			$user->set_role( 'contributor' ); // type d'user que je veux a ce moment la
 			// redirection après connexion
 			wp_redirect(esc_url(home_url('/')));
 			exit;
@@ -137,7 +151,6 @@ function create_account(){
 	}
 }
 add_action('init', 'create_account');
-
 
 
 function create_post_type()
@@ -175,13 +188,14 @@ function send_mail_data() {
 	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
 }
 
-function habiliter_svg($mimes) {
+add_filter('upload_mimes', 'allow_svg_uploads');
+function allow_svg_uploads($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
-add_filter('upload_mimes', 'habiliter_svg');
 
 
+add_filter('wp_check_filetype_and_ext', 'sanitize_svg', 10, 4);
 function sanitize_svg($file) {
   if ($file['type'] === 'image/svg+xml') {
       $file['ext'] = 'svg';
@@ -189,4 +203,3 @@ function sanitize_svg($file) {
   }
   return $file;
 }
-add_filter('wp_check_filetype_and_ext', 'sanitize_svg', 10, 4);
