@@ -28,7 +28,7 @@
             //         ]
             //     ],
             //     [
-                "question" => "Quel type d'activité préférez-vous ?",
+               // "question" => "Quel type d'activité préférez-vous ?",
                 //         "options" => [
                 //             ["text" => "Réaliser des expériences ou analyser des données.", "domain" => "Science"],
                 //             ["text" => "Interagir avec des personnes pour les conseiller.", "domain" => "Social"],
@@ -81,7 +81,7 @@
             //         ]
             //     ],
             //     [
-                "question" => "Dans quelle matière excellez-vous le plus ?",
+                //"question" => "Dans quelle matière excellez-vous le plus ?",
                 //         "options" => [
                 //             ["text" => "Les mathématiques ou les sciences naturelles.", "domain" => "Science"],
                 //             ["text" => "Les sciences humaines ou sociales.", "domain" => "Social"],

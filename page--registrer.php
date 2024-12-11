@@ -11,17 +11,15 @@ get_header();
 
 <div class="container">
     <div class="row">
-        <div class="imagenseconnecter col-lg-6 col-12">
-            <img  src="<?php echo get_template_directory_uri(); ?>/img/Inscription-student-page.svg" 
-                 alt="Description de l'image">
-        </div>
 
         <div class="contenedortextoinscrire col-lg-6 col-12">
-            <h1 class="titreseconnecter">S'inscrire</h1>
+            
 
             <?php if ( isset($_GET['success']) && $_GET['success'] == 1 ): ?>
                 <p style="color: green;">Inscription réussie ! Vous pouvez maintenant vous connecter.</p>
             <?php endif; ?>
+            <div class="form-sinscrire">
+                <h1 class="titreseconnecter">S'inscrire</h1>
             <form method="post" name="myForm">
                 
                 <label for="fname">Prénom</label>
@@ -49,12 +47,22 @@ get_header();
 				<br>
 				<br>
 
-                <p id="textepasinscrit">Déjà membre ? <a href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>"> Se connecter</a></p>
+                <p id="textepasinscrit">Déjà membre ?  <a href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>"> Se connecter</a></p>
 
+                <div class="d-flex justify-content-center align-items-center h-100">
                 <input type="hidden" name="create_account_nonce" value="<?php echo wp_create_nonce('create_account_action'); ?>">
-                <button type="submit" id="buttoninscrit" name="submit">S'inscrire</button>
+                <button class="button-sinscrire"  type="submit" id="buttoninscrit" name="submit">S'inscrire</button>
+                </div>
             </form>
             </div>
+        </div>
+            <div class="imagenseconnecter col-lg-6 col-12">
+            <div class="d-flex justify-content-center align-items-center h-100">
+            <img  src="<?php echo get_template_directory_uri(); ?>/assets/img/Inscription-student-page.svg" 
+                 class="img-fluid" alt="Description de l'image">
+                 
+                </div>
+        </div>
     </div>
 </div>
 

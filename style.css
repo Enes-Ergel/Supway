@@ -1,6 +1,10 @@
 /* Theme Name: Supway */
 
 /* Nav bar */
+
+.navbar {
+  color: white;
+}
 .btn-connecter {
     background-color: #0097b2;
     color: #ffffff;
@@ -34,34 +38,11 @@
   
   /* Header */
   
-  
-  
-  .imagelogo {
+  .logo-nav {
     width: 193px ;
     height: 39px ;
   }
-  
-  .contenedor1 {
-    background-color: #ffffff;
-    width: 1440px;  
-    height: 598px;
-    display: grid; 
-    grid-template-columns:  repeat(12, 1fr);
-    gap: 10px;
-    grid-template-rows: repeat(4, 1fr);
-    
-  }
-  .contenedor2 {
-    background-color: #15b200;
-    width: 1440px;  
-    height: 615px;
-    display: grid; 
-    grid-template-columns:  repeat(12, 1fr);
-    gap: 10px;
-    grid-template-rows: repeat(4, 1fr);
-  }
-  
-  .titulo1 {
+  h1 {
     
     color: #0097B2;
     font-size: 36px; 
@@ -83,7 +64,7 @@
     grid-column-end: 12 ;
   }
   
-  .textbutton {
+  .texte-intro {
     width: 603px;
     height: 284px;
     grid-row-start: 2;
@@ -103,6 +84,13 @@
   
   .textocontenedor1 {
     font-size: 24px;
+  }
+
+  /* home page */
+
+  .img-intro {
+    width: 595px;
+    height: 572px;
   }
   
   
@@ -276,4 +264,16 @@
   display: flex;
   justify-content: center;
   
+}
+/* S'inscrire */
+
+.button-sinscrire {
+  background-color: #BFDD7D;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 20px;
+}
+.form-sinscrire {
+  margin: 50px;
 }

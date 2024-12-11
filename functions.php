@@ -82,6 +82,7 @@ function create_account(){
 
   
 
+
 if ( $pass !== $repass ) {
     wp_die('Les mots de passe ne correspondent pas.');
 }
@@ -96,7 +97,11 @@ if ( $pass !== $repass ) {
 		$user_pass = $pass;
 
      // Agregar nombre y apellido al arreglo de datos
-		$userdata = compact('user_login', 'user_email', 'user_pass', 'first_name', 'last_name');
+		
+     $userdata = compact('user_login', 'user_email', 'user_pass');
+     $userdata['first_name'] = $fname;
+     $userdata['last_name'] = $lname;  
+
 		$user_id = wp_insert_user($userdata);
 
 		if( !is_wp_error($user_id) ) {
@@ -137,19 +142,8 @@ function send_mail_data() {
 	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
 }
 
-
-add_filter('upload_mimes', 'allow_svg_uploads');
-function allow_svg_uploads($mimes) {
+function enable_svg_upload($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
-
-
-add_filter('wp_check_filetype_and_ext', 'sanitize_svg', 10, 4);
-function sanitize_svg($file) {
-  if ($file['type'] === 'image/svg+xml') {
-      $file['ext'] = 'svg';
-      $file['type'] = 'image/svg+xml';
-  }
-  return $file;
-}
+add_filter('upload_mimes', 'enable_svg_upload');

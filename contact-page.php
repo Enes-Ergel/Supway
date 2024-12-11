@@ -31,11 +31,11 @@ if ( isset($_GET['sent']) ){
     </div>
 
 
-	<p><input type="checkbox" id="terms" name="terms" required> Acepto los <a href="#">Términos y Condiciones</a></p>
+	<p><input type="checkbox" id="terms" name="terms" required><a href="#">Accepter les conditions</a></p>
 
 	<br>
 	<input type="hidden" name="action" value="process_form">
-	<input type="submit" name="submit" value="Enviar">
+	<input type="submit" name="submit" value="Envoyer">
 </form>
 
 
