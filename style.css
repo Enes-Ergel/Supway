@@ -272,3 +272,13 @@ form a:hover {
   display: flex;
   justify-content: center;
 }
+
+/* Mentions légales */
+
+.titrementions {
+  color: #0097B2;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  
+}
