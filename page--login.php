@@ -41,7 +41,7 @@ get_header();
                 
                 <p id="textepasinscrit">
                     Vous n’êtes pas encore inscrit ? 
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('?page_id=58'))); ?>">S’inscrire</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S’inscrire</a>
                 </p>
 
                 

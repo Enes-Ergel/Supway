@@ -1,29 +1,4 @@
 <?php 
-/*
-add_action( 'after_setup_theme', 'instalarTemplate' ); //le estoy pidiendo de hacer la instalaicon del tema, dada por la palabra instalar template
- function instalarTemplate(){
-    register_nav_menus(array('main-menu'=>esc_html__('Menu principal', '')) ); //aqui estoy registranfo el menu principal en wordpress
- }
- */
-
-
-/*
- add_action('wp_enqueue_scripts','scriptsTemplate'); //le pedi que con esta accion se agregara los scriptstemplate
-    function scriptsTemplate(){
-        wp_enqueue_style('style', get_stylesheet_uri(  ));
-        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css');
-        wp_enqueue_script('jquery');
-   }
-    
-
-*/
-
-add_theme_support('post-thumbnails');
-add_theme_support('title-tag');
-add_theme_support('menus');
-
-register_nav_menu('header', 'En tête du menu');
-register_nav_menu('footer', 'En pied du menu');
 
 function styles_scripts()
 {
@@ -50,24 +25,11 @@ function styles_scripts()
     1,
     true
   );
-  wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'styles_scripts');
 
-/*function iniciarWidgets(){
-  
-       resgister_sidebar ( array (
-                          'name' => esc_html__(''),
-                          'id' => ''
-                          ) );
-}
-add_action( 'init','iniciarWidgets' );*/
-
-/**
- * Add a sidebar.
- */
-
- function wpdocs_theme_slug_widgets_init() {
+ 
+function wpdocs_theme_slug_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Barre lateral droite', 'textdomain' ),
 		'id'            => 'barra_lateral_1',
@@ -95,6 +57,7 @@ function agregar_clases_a_los_enlaces($atts, $item, $args) {
    return $atts;
 }
 */
+
 register_nav_menu('header', 'En tête du menu');
 function montheme_menu_class($classes) {
   $classes[] = 'nav-item';
@@ -122,43 +85,34 @@ function create_account(){
 if ( $pass !== $repass ) {
     wp_die('Les mots de passe ne correspondent pas.');
 }
-if ( username_exists( $user ) || email_exists( $email ) ) {
-    wp_die('Le nom de utilisateur ou adresse électronique est déjà enregistré');
+
+  if ( username_exists( $user ) || email_exists( $email ) ) {
+     wp_die('Le nom de utilisateur ou adresse électronique est déjà enregistré');
 }
 
-   if ( !username_exists( $user )  && !email_exists( $email ) ) {
-       $user_login = wp_slash( $user );
-       $user_email = wp_slash( $email );
-       $user_pass = $pass;
+	if ( !username_exists( $user )  && !email_exists( $email ) ) {
+		$user_login = wp_slash( $user );
+		$user_email = wp_slash( $email );
+		$user_pass = $pass;
 
-    // Agregar nombre y apellido al arreglo de datos
-       $userdata = compact('user_login', 'user_email', 'user_pass', 'first_name', 'last_name');
-       $user_id = wp_insert_user($userdata);
+     // Agregar nombre y apellido al arreglo de datos
+		$userdata = compact('user_login', 'user_email', 'user_pass', 'first_name', 'last_name');
+		$user_id = wp_insert_user($userdata);
 
-       if( !is_wp_error($user_id) ) {
-           // user has been created
-           $user = new WP_User( $user_id );
-           $user->set_role( 'contributor' ); // type d'user que je veux a ce moment la
-           // redirection après connexion
-           wp_redirect(esc_url(home_url('/')));
-           exit;
-       } else {
-           //$user_id is a WP_Error object. Manage the error
-       }
-   }
+		if( !is_wp_error($user_id) ) {
+			// user has been created
+			$user = new WP_User( $user_id );
+			$user->set_role( 'contributor' ); // type d'user que je veux a ce moment la
+			// redirection après connexion
+			wp_redirect(esc_url(home_url('/')));
+			exit;
+		} else {
+			//$user_id is a WP_Error object. Manage the error
+		}
+	}
 }
 add_action('init', 'create_account');
-function create_post_type()
-{
-  register_post_type('quiz', [
-    'labels' => ['name' => 'Quiz'],
-    'supports' => ['title', 'editor', 'thumbnail'],
-    'public' => true,
-    'has_archive' => true,
-    'rewrite' => ['slug' => 'quiz']
-  ]);
-}
-add_action('init', 'create_post_type');
+
 //Contact
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
@@ -177,10 +131,12 @@ function send_mail_data() {
 	$msg = "Nom: " . $name . "\n";
 	$msg .= "E-mail: " . $email . "\n\n";
 	$msg .= "Message: \n\n" . $message . "\n";
-    $sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
+
+	$sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
 
 	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
 }
+
 
 add_filter('upload_mimes', 'allow_svg_uploads');
 function allow_svg_uploads($mimes) {

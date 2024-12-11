@@ -16,7 +16,7 @@
 <div class="container-fluid">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
-            <img class="imagelogo" src="<?php echo get_template_directory_uri(); ?>./img/Supway-logo-normal.svg" alt="Supway Logo" />
+            <img class="imagelogo" src="<?php echo get_template_directory_uri(); ?>./assets/img/logo/Supway-logo.svg" alt="Supway Logo" />
             </a> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,9 +37,9 @@
                     
                     <a class="btn btn-danger me-2" href="<?php echo wp_logout_url(home_url('/')); ?>">Déconnexion</a>
                 <?php else: ?>
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('?page_id=58'))); ?>" class="btn btn-inscrire me-2">S'inscrire</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="btn btn-inscrire me-2">S'inscrire</a>
 
-                    <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/?page_id=49')); ?>">Se connecter</a>
+                    <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/se-connecter')); ?>">Se connecter</a>
                 <?php endif; ?>
             </>
         </div>

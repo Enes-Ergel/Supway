@@ -37,7 +37,7 @@
   
   
   .imagelogo {
-    width: 210px ;
+    width: 193px ;
     height: 39px ;
   }
   
@@ -197,10 +197,8 @@
   
   /*footer*/
   
-  .footer {
-    width: 1440px;
-    height: 258px;
-    background-color: #CAE9EB;
+  footer {
+    background-color: red;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-row: repeat (3, 1fr);
@@ -269,3 +267,13 @@
     display: flex;
     justify-content: center;
   }
+  
+  /* Mentions légales */
+
+.titrementions {
+  color: #0097B2;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  
+}
