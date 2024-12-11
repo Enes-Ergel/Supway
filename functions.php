@@ -1,29 +1,5 @@
 <?php 
-/*
-add_action( 'after_setup_theme', 'instalarTemplate' ); //le estoy pidiendo de hacer la instalaicon del tema, dada por la palabra instalar template
- function instalarTemplate(){
-    register_nav_menus(array('main-menu'=>esc_html__('Menu principal', '')) ); //aqui estoy registranfo el menu principal en wordpress
- }
- */
 
-
-/*
- add_action('wp_enqueue_scripts','scriptsTemplate'); //le pedi que con esta accion se agregara los scriptstemplate
-    function scriptsTemplate(){
-        wp_enqueue_style('style', get_stylesheet_uri(  ));
-        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css');
-        wp_enqueue_script('jquery');
-   }
-    
-
-*/
-
-add_theme_support('post-thumbnails');
-add_theme_support('title-tag');
-add_theme_support('menus');
-
-register_nav_menu('header', 'En tête du menu');
-register_nav_menu('footer', 'En pied du menu');
 function styles_scripts()
 {
   wp_enqueue_style(
@@ -32,7 +8,7 @@ function styles_scripts()
   );
   wp_enqueue_style(
     'style',
-    get_template_directory_uri() . '/style.css'
+    get_template_directory_uri() . '/estilooloco.css'
   );
 
   wp_enqueue_script(
@@ -49,25 +25,10 @@ function styles_scripts()
     1,
     true
   );
-  wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'styles_scripts');
 
- // registo de side bars (area de widgets)-->
-
-
-/*function iniciarWidgets(){
-  
-       resgister_sidebar ( array (
-                          'name' => esc_html__(''),
-                          'id' => ''
-                          ) );
-}
-add_action( 'init','iniciarWidgets' );*/
-
-/**
- * Add a sidebar.
- */
+ 
 function wpdocs_theme_slug_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Barre lateral droite', 'textdomain' ),
@@ -152,18 +113,6 @@ if ( $pass !== $repass ) {
 }
 add_action('init', 'create_account');
 
-
-function create_post_type()
-{
-  register_post_type('quiz', [
-    'labels' => ['name' => 'Quiz'],
-    'supports' => ['title', 'editor', 'thumbnail'],
-    'public' => true,
-    'has_archive' => true,
-    'rewrite' => ['slug' => 'quiz']
-  ]);
-}
-add_action('init', 'create_post_type');
 //Contact
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
@@ -187,6 +136,7 @@ function send_mail_data() {
 
 	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
 }
+
 
 add_filter('upload_mimes', 'allow_svg_uploads');
 function allow_svg_uploads($mimes) {

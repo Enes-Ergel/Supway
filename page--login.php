@@ -45,7 +45,7 @@ get_header();
                 </p>
 
                 
-                <input id="#buttoninscrit" type="submit" name="submit" value="Se connecter">
+                <input class="btn-inscrire" id="#buttoninscrit" type="submit" name="submit" value="Se connecter">
                 <input type="hidden" name="redirect_to" 
                        value="<?php echo esc_url(home_url('/')); ?>">
 

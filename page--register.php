@@ -53,7 +53,7 @@ get_header();
                 <p id="textepasinscrit">Déjà membre ? <a href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>"> Se connecter</a></p>
 
                 <input type="hidden" name="create_account_nonce" value="<?php echo wp_create_nonce('create_account_action'); ?>">
-                <button type="submit" id="buttoninscrit" name="submit">S'inscrire</button>
+                <button class= "" type="submit" id="buttoninscrit" name="submit">S'inscrire</button>
             </form>
         </div>
     </div>
