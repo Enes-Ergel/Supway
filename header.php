@@ -38,9 +38,9 @@
                     
                     <a class="btn btn-danger me-2" href="<?php echo wp_logout_url(home_url('/')); ?>">Déconnexion</a>
                 <?php else: ?>
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('?page_id=58'))); ?>" class="btn btn-inscrire me-2">S'inscrire</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sincrire'))); ?>" class="btn btn-inscrire me-2">S'inscrire</a>
 
-                    <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/?page_id=49')); ?>">Se connecter</a>
+                    <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/se-connecter')); ?>">Se connecter</a>
                 <?php endif; ?>
             </>
         </div>
