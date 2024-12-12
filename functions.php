@@ -21,11 +21,20 @@ function styles_scripts()
   wp_enqueue_script(
     'app-js',
     get_template_directory_uri() . '/script.js',
+    array('jquery'),
     ['bootstrap-bundle'],
     1,
     true
   );
 }
+function ajouter_slick() {
+  wp_enqueue_script('slick-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), '1.8.1', true);
+  wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
+  wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
+}
+add_action('wp_enqueue_scripts', 'ajouter_slick');
+
+wp_enqueue_script('jquery');
 add_action('wp_enqueue_scripts', 'styles_scripts');
 
  
@@ -147,3 +156,121 @@ function enable_svg_upload($mimes) {
   return $mimes;
 }
 add_filter('upload_mimes', 'enable_svg_upload');
+
+/* profiles pour consultants */
+
+add_action('init', 'enregistrer_cpt_profils_conseillers');
+function enregistrer_cpt_profils_conseillers() {
+  $labels = array(
+      'name'               => 'Profils conseillers',
+      'singular_name'      => 'Profil',
+      'add_new'            => 'Ajouter un Nouveau Profil',
+      'add_new_item'       => 'Ajouter un Nouveau Profil',
+      'edit_item'          => 'Modifier le Profil',
+      'new_item'           => 'Nouveau Profil',
+      'view_item'          => 'Voir le Profil',
+      'search_items'       => 'Rechercher des Profils',
+      'not_found'          => 'Aucun profil trouvé',
+      'not_found_in_trash' => 'Aucun profil trouvé dans la corbeille',
+  );
+
+  $args = array(
+      'labels'             => $labels,
+      'public'             => true,
+      'has_archive'        => false,
+      'rewrite'            => array('slug' => 'profil-conseillers'),
+      'supports'           => array('title', 'thumbnail', 'editor'),
+      'menu_icon'          => 'dashicons-id',
+  );
+
+  register_post_type('profil_conseillers', $args);
+}
+
+
+
+add_action('add_meta_boxes', 'ajouter_metabox_profils');
+add_action('save_post', 'sauvegarder_metabox_profils');
+
+function ajouter_metabox_profils() {
+  add_meta_box(
+      'info_profil',
+      'Informations du Profil',
+      'afficher_metabox_profils',
+      'profil_conseillers',
+      'normal',
+      'default'
+  );
+}
+
+function afficher_metabox_profils($post) {
+  // Récupérer les métadonnées associées au post
+  $travail = get_post_meta($post->ID, '_travail', true);
+  $email = get_post_meta($post->ID, '_email', true);
+  $numero = get_post_meta($post->ID, '_numero', true);
+  $photo = get_post_meta($post->ID, '_photo', true);
+  ?>
+  <p>
+      <label for="travail">Poste de Travail :</label>
+      <input type="text" id="travail" name="travail" value="<?php echo esc_attr($travail); ?>" style="width:100%;">
+  </p>
+  <p>
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" value="<?php echo esc_attr($email); ?>" style="width:100%;">
+  </p>
+  <p>
+      <label for="numero">Numéro de Téléphone :</label>
+      <input type="text" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
+  </p>
+  <p>
+        <label for="photo">Photo de Profil :</label>
+        <input type="hidden" id="photo" name="photo" value="<?php echo esc_attr($photo); ?>">
+        <input type="button" id="upload-photo-button" class="button" value="Télécharger une Image">
+        <div id="photo-preview" style="margin-top:10px;">
+            <?php if ($photo): ?>
+                <img src="<?php echo esc_url($photo); ?>" style="max-width:100%; height:auto;">
+            <?php endif; ?>
+        </div>
+    </p>
+    
+  <?php
+}
+
+function sauvegarder_metabox_profils($post_id) {
+ 
+  if (array_key_exists('travail', $_POST)) {
+      update_post_meta($post_id, '_travail', sanitize_text_field($_POST['travail']));
+  }
+  
+  if (array_key_exists('email', $_POST)) {
+      update_post_meta($post_id, '_email', sanitize_email($_POST['email']));
+  }
+ 
+  if (array_key_exists('numero', $_POST)) {
+      update_post_meta($post_id, '_numero', sanitize_text_field($_POST['numero']));
+  }
+  if (array_key_exists('photo', $_POST)) {
+    update_post_meta($post_id, '_photo', esc_url_raw($_POST['photo']));
+}
+}
+
+
+add_action('admin_enqueue_scripts', 'charger_script_metabox');
+function charger_script_metabox($hook) {
+  global $post_type;
+
+  // Charger uniquement sur le type de post 'profil_conseillers'
+  if ($post_type === 'profil_conseillers' && ($hook === 'post-new.php' || $hook === 'post.php')) {
+      wp_enqueue_script(
+          'admin-metabox-photo',
+          get_template_directory_uri() . '/js/admin-metabox.js', // Modifiez ce chemin si nécessaire
+          array('jquery', 'wp-mediaelement'), // Dépendances
+          null,
+          true // Charger dans le footer
+      );
+
+      // Assurer que l'API media de WordPress est disponible
+      wp_enqueue_media();
+  }
+}
+
+add_filter( 'rwmb_meta_boxes', 'mc_register_meta_boxes' );

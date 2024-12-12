@@ -6,17 +6,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
-    <?php wp_head(); ?> 
-    <title>Supway</title>
+    <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body 
+<?php body_class(); ?>>
 <header>
 
 <div class="container-fluid">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
-            <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/Supway-logo.svg"> 
+            <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
         </a> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,6 +41,7 @@
 
                     <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/se-connecter')); ?>">Se connecter</a>
                 <?php endif; ?>
+            
         
     </div>
     </div>

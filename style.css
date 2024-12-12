@@ -2,7 +2,7 @@
 
 /* Nav bar */
 
-.navbar {
+nav {
   color: white;
 }
 .btn-connecter {
@@ -39,9 +39,10 @@
   /* Header */
   
   .logo-nav {
-    width: 193px ;
-    height: 39px ;
+    width: 50px ;
+    height: 20px ;
   }
+
   h1 {
     
     color: #0097B2;
@@ -89,11 +90,42 @@
   /* home page */
 
   .img-intro {
-    width: 595px;
-    height: 572px;
+    width: 540px;
+    height: 450px;
+  }
+  .container-fluid {
+    width: 100%;
+  }
+  .rubrique2 {
+    width: 100%;
+    height: 615px;
+    background-color: #0097B2;
+    margin: none;
+    padding: none;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   
+  .picto {
+    height: 20px;
+    width: 49px;
+  }
+  .container-nosobjectifs {
+    background-color: #BFDD7D;
+  }
   
+  .card {
+    border-radius: 15px;
+    border-color: black;
+    background-color: #BFDD7D;
+    border-width: 3px;
+    width: 320px;
+    height: 200px;
+  }
+
+ 
+  
+
   /*Contact*/
   .titrenouscontacter {
     color: #0097B2;
@@ -263,8 +295,16 @@
   font-size: 32px;
   display: flex;
   justify-content: center;
-  
+  align-items: center;
+  font-weight: bold;
 }
+.titrementions h3 {
+  font-size: 24px;
+}
+.titrementions ul {
+  font-size: 24px;
+}
+
 /* S'inscrire */
 
 .button-sinscrire {
@@ -276,4 +316,59 @@
 }
 .form-sinscrire {
   margin: 50px;
+}
+/* Conseillers */
+.container-conseillers {
+  max-width: 848px;
+  max-height: 519px;
+  margin: 0 auto;
+  padding: 20px;
+ 
+}
+
+.container-conseillers h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 30px;
+  color: #0097B2;
+  font-weight: bold;
+}
+
+
+.conseiller {
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #0097B2;
+  text-align: start;
+  transition: box-shadow 0.3s ease;
+  color: #FFFFFF;
+}
+
+.conseiller:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.conseiller h2 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.conseiller p {
+  margin: 5px 0;
+}
+
+.conseiller a {
+  color: #0073aa;
+  text-decoration: none;
+}
+
+.conseiller a:hover {
+  text-decoration: underline;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #ffffff;
 }

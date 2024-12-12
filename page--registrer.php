@@ -60,8 +60,7 @@ get_header();
             <div class="d-flex justify-content-center align-items-center h-100">
             <img  src="<?php echo get_template_directory_uri(); ?>/assets/img/Inscription-student-page.svg" 
                  class="img-fluid" alt="Description de l'image">
-                 
-                </div>
+            </div>
         </div>
     </div>
 </div>
