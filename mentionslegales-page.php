@@ -2,10 +2,14 @@
 
 <?php get_header(); ?>
 
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-12">
-<h1 classe="titrementions">Mentions légales</h1>
+<h1 class="titrementions">Mentions légales</h1>
+<br>
 <br>
 <br>
 <h3><b>Identité et coordonnées de l’éditeur responsable de ce site internet :</b></h3>
@@ -31,5 +35,6 @@
    </div>
 </div>
 
-
-<?php get_footer(); ?>
+  
+    
+   <?php get_footer(); ?>

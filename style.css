@@ -280,5 +280,14 @@ form a:hover {
   font-size: 32px;
   display: flex;
   justify-content: center;
-  
+  font-weight: bold;
+
+}
+
+h3 {
+  font-size: 24px;
+}
+
+ul {
+  font-size: 24px;
 }
