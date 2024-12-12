@@ -184,6 +184,8 @@ function enregistrer_cpt_profils_conseillers() {
   register_post_type('profil_conseillers', $args);
 }
 
+
+
 add_action('add_meta_boxes', 'ajouter_metabox_profils');
 add_action('save_post', 'sauvegarder_metabox_profils');
 
@@ -199,12 +201,13 @@ function ajouter_metabox_profils() {
 }
 
 function afficher_metabox_profils($post) {
+  // Récupérer les métadonnées associées au post
   $travail = get_post_meta($post->ID, '_travail', true);
   $email = get_post_meta($post->ID, '_email', true);
-  $numero = get_post_meta($post->ID, '_email', true);
+  $numero = get_post_meta($post->ID, '_numero', true);
   ?>
   <p>
-      <label for="travail">Travail :</label>
+      <label for="travail">Poste de Travail :</label>
       <input type="text" id="travail" name="travail" value="<?php echo esc_attr($travail); ?>" style="width:100%;">
   </p>
   <p>
@@ -212,20 +215,23 @@ function afficher_metabox_profils($post) {
       <input type="email" id="email" name="email" value="<?php echo esc_attr($email); ?>" style="width:100%;">
   </p>
   <p>
-      <label for="numero">Número de téléphone :</label>
-      <input type="numero" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
+      <label for="numero">Numéro de Téléphone :</label>
+      <input type="text" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
   </p>
   <?php
 }
 
 function sauvegarder_metabox_profils($post_id) {
-  if (array_key_exists('fonction', $_POST)) {
-      update_post_meta($post_id, '_fonction', sanitize_text_field($_POST['fonction']));
+ 
+  if (array_key_exists('travail', $_POST)) {
+      update_post_meta($post_id, '_travail', sanitize_text_field($_POST['travail']));
   }
+  
   if (array_key_exists('email', $_POST)) {
       update_post_meta($post_id, '_email', sanitize_email($_POST['email']));
   }
+ 
   if (array_key_exists('numero', $_POST)) {
-    update_post_meta($post_id, '_numero', sanitize_email($_POST['numero']));
-}
+      update_post_meta($post_id, '_numero', sanitize_text_field($_POST['numero']));
+  }
 }

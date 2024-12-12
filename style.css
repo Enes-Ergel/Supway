@@ -284,10 +284,70 @@ form a:hover {
 
 }
 
-h3 {
+.titrementions h3 {
   font-size: 24px;
 }
 
-ul {
+.titrementions ul {
   font-size: 24px;
+}
+
+/* Conseillers */
+.container-conseillers {
+  max-width: 848px;
+  max-height: 519px;
+  margin: 0 auto;
+  padding: 20px;
+ 
+}
+
+.container-conseillers h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 30px;
+  color: #0097B2;
+  font-weight: bold;
+}
+
+
+.conseiller {
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #0097B2;
+  text-align: start;
+  transition: box-shadow 0.3s ease;
+  color: #FFFFFF;
+}
+
+.conseiller:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-conseiller {
+ 
+}
+
+.conseiller h2 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.conseiller p {
+  margin: 5px 0;
+}
+
+.conseiller a {
+  color: #0073aa;
+  text-decoration: none;
+}
+
+.conseiller a:hover {
+  text-decoration: underline;
+}
+
+.description {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #ffffff;
 }
