@@ -203,11 +203,11 @@ function ajouter_metabox_profils() {
 }
 
 function afficher_metabox_profils($post) {
-  // Récupérer les métadonnées associées au post
+ 
   $travail = get_post_meta($post->ID, '_travail', true);
   $email = get_post_meta($post->ID, '_email', true);
   $numero = get_post_meta($post->ID, '_numero', true);
-  $photo = get_post_meta($post->ID, '_photo', true);
+  
   ?>
   <p>
       <label for="travail">Poste de Travail :</label>
@@ -221,16 +221,7 @@ function afficher_metabox_profils($post) {
       <label for="numero">Numéro de Téléphone :</label>
       <input type="text" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
   </p>
-  <p>
-        <label for="photo">Photo de Profil :</label>
-        <input type="hidden" id="photo" name="photo" value="<?php echo esc_attr($photo); ?>">
-        <input type="button" id="upload-photo-button" class="button" value="Télécharger une Image">
-        <div id="photo-preview" style="margin-top:10px;">
-            <?php if ($photo): ?>
-                <img src="<?php echo esc_url($photo); ?>" style="max-width:100%; height:auto;">
-            <?php endif; ?>
-        </div>
-    </p>
+  
     
   <?php
 }
@@ -248,29 +239,7 @@ function sauvegarder_metabox_profils($post_id) {
   if (array_key_exists('numero', $_POST)) {
       update_post_meta($post_id, '_numero', sanitize_text_field($_POST['numero']));
   }
-  if (array_key_exists('photo', $_POST)) {
-    update_post_meta($post_id, '_photo', esc_url_raw($_POST['photo']));
-}
+  
 }
 
 
-add_action('admin_enqueue_scripts', 'charger_script_metabox');
-function charger_script_metabox($hook) {
-  global $post_type;
-
-  // Charger uniquement sur le type de post 'profil_conseillers'
-  if ($post_type === 'profil_conseillers' && ($hook === 'post-new.php' || $hook === 'post.php')) {
-      wp_enqueue_script(
-          'admin-metabox-photo',
-          get_template_directory_uri() . '/js/admin-metabox.js', // Modifiez ce chemin si nécessaire
-          array('jquery', 'wp-mediaelement'), // Dépendances
-          null,
-          true // Charger dans le footer
-      );
-
-      // Assurer que l'API media de WordPress est disponible
-      wp_enqueue_media();
-  }
-}
-
-add_filter( 'rwmb_meta_boxes', 'mc_register_meta_boxes' );
