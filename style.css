@@ -131,6 +131,7 @@ nav {
     color: #0097B2;
     display: flex;
     justify-content: center;
+    margin: 30px 0px;
   }
   
   form {
@@ -139,9 +140,8 @@ nav {
     padding: 10px;
     background-color: #ffffff;
     color: #0097B2;
-    
     font-family: Arial, Helvetica, sans-serif;
-    
+  
   }
   
   
@@ -156,9 +156,20 @@ nav {
     color: #0097B2;
   }
   
-  
-  
   form input[type="text"],
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #0097B2;
+    border-radius: 20px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  
+  
   form input[type="email"],
   form input[type="password"],
   form textarea {
@@ -166,7 +177,7 @@ nav {
     padding: 10px;
     margin-top: 5px;
     border: 2px solid #0097B2;
-    border-radius: 50px;
+    border-radius: 20px;
     font-size: 14px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;

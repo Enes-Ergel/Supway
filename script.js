@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     // Gestion de l'upload d'image
-    var frame;
+    let frame;
 
     $('#upload-photo-button').on('click', function(e) {
         e.preventDefault();
@@ -34,8 +34,6 @@ jQuery(document).ready(function($) {
         // Ouvrir le frame
         frame.open();
     });
-
-   
    
     jQuery(document).ready(function($) {
         $('.grid-conseillers').slick({

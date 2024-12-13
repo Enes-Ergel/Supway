@@ -12,7 +12,7 @@ get_header();
 <div class="container">
     <div class="row">
 
-        <div class="contenedortextoinscrire col-lg-6 col-12">
+        <div class="contenedortextoinscrire col-lg-6 col-12 order-1 order-lg-2">
             
 
             <?php if ( isset($_GET['success']) && $_GET['success'] == 1 ): ?>
@@ -56,7 +56,7 @@ get_header();
             </form>
             </div>
         </div>
-            <div class="imagenseconnecter col-lg-6 col-12">
+            <div class="imagenseconnecter col-lg-6 col-12 order-1 order-lg-1">
             <div class="d-flex justify-content-center align-items-center h-100">
             <img  src="<?php echo get_template_directory_uri(); ?>/assets/img/Inscription-student-page.svg" 
                  class="img-fluid" alt="Description de l'image">

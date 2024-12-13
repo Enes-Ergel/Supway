@@ -11,6 +11,7 @@ if ( isset($_GET['sent']) ){
 }
 ?>
 
+	<h1 class="titrenouscontacter">Nous contacter</h1>
   <form method="post" action="<?php echo admin_url( 'admin-post.php' ) ?>" >
 
       <div class="blockdetexte">

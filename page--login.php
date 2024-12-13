@@ -11,17 +11,18 @@ get_header();
 ?>
 <br>
 <br>
+
 <div class="container">
     <div class="row">
 
        
-        <div class="imagenseconnecter col-lg-6 col-12">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/Inscription-student-page.svg" 
+        <div class="imagenseconnecter col-12 col-lg-6 order-2 order-lg-2">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-diplome.svg" 
                  alt="Description de l'image">
         </div>
 
         
-        <div class="contenedortextoconnecter col-lg-6 col-12">
+        <div class="contenedortextoconnecter col-12 col-lg-6 order-1 order-lg-1">
             <h1 class="titreseconnecter">Se connecter</h1>
             <br>
             <br>
@@ -41,17 +42,16 @@ get_header();
                 
                 <p id="textepasinscrit">
                     Vous n’êtes pas encore inscrit ? 
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S’inscrire</a>
+                    <a  href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S’inscrire</a>
                 </p>
-
-                
-                <input id="#buttoninscrit" type="submit" name="submit" value="Se connecter">
+                <div class="d-flex justify-content-center align-items-center h-100"> 
+                <input class="button-sinscrire" type="submit" name="submit" value="Se connecter">
                 <input type="hidden" name="redirect_to" 
                        value="<?php echo esc_url(home_url('/')); ?>">
 
             </form>
-        </div>
     </div>
+</div>
 </div>
 <br>
 <br>
