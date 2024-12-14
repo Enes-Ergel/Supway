@@ -13,10 +13,13 @@
 <?php body_class(); ?>>
 <header>
 
-<div class="container-fluid">
+<div class="container-fluid p-0">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
+                <div class="col-2"></div>
+                <div class="col-2">
             <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
+        </div>
         </a> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,7 +42,7 @@
                 <?php else: ?>
                     <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="btn btn-inscrire me-2">S'inscrire</a>
 
-                    <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/se-connecter')); ?>">Se connecter</a>
+                    <a class="btn btn-connecter" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
                 <?php endif; ?>
             
         

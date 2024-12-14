@@ -6,9 +6,9 @@
             <div class="col-12 col-lg-6">
 
             <h1>Supway, la voie du supérieur</h1>
-            <p>Tu te demandes quoi faire après la rhéto ? Ou tu cherches  à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway !</p>
+            <p class="corps-texte">Tu te demandes quoi faire après la rhéto ? Ou tu cherches  à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway !</p>
               <button type="button" id= "azul" class="btn btn-inscrire me-2 ">Se connecter</button>
-              <button type="button" id= "azul" class="btn btn-inscrire me-2 ">S'inscrire</button>
+              <button type="button" id= "azul" class="btn btn-inscrire me-2">S'inscrire</button>
               </div>
               <div class="col-12 col-lg-6 pt-5 mt-5">
               <img class="img-intro" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-page-intro.svg">
@@ -20,7 +20,7 @@
                 <div class="row w-100 position-relative">
                 <div class="col-12 col-lg-6 order-1 order-md-2">
 
-                  <p>
+                  <p class="corps-texte">
                   Grâce à notre quiz interactif et à une communauté de conseillers passionnés, nous t’aidons à découvrir le chemin qui te correspond. 
                   Ces conseillers sont là pour t’accompagner et te permettre de t’insérer au mieux dans la section qui te correspond.
                   </p>
@@ -28,7 +28,7 @@
                 
                   <div class="col-12 col-lg-6 order-2 order-md-1">
                       <div class="img-fluid">
-                  <img class="img-intro" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-book.svg">
+                  <img class="img-intro"  src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-book.svg">
                 </div>
                 </div>
               </div>
@@ -40,7 +40,7 @@
       <div class="row pt-5 ps-5">
           <div class="col-12 col-lg-6">
               <h2>Partagez votre expérience, ...</h2>
-              <p>Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? 
+              <p class="corps-texte">Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? 
               Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.</p>
               <button type="button" id= "azul" class="btn btn-inscrire me-2">Rejoignez-nous</button>
           </div>
@@ -56,7 +56,7 @@
       </div>
       <div class="col-12 col-lg-6 order-1 order-md-2">
         <h2>...inspirez des futurs étudiants</h2>
-        <p>Avec votre expertise, guidez la nouvelle génération dans leurs choix d'études et démarches. 
+        <p class="corps-texte">Avec votre expertise, guidez la nouvelle génération dans leurs choix d'études et démarches. 
           Faites la différence dès aujourd'hui en devenant un acteur clé de leur réussite !</p>
       </div>
     </div>
@@ -103,7 +103,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6">
-        <p><b>Inscris-toi</b>sur Supway pour accéder à un quiz d’orientation personnalisé et des conseillers 
+        <p class="corps-texte"><b>Inscris-toi</b>sur Supway pour accéder à un quiz d’orientation personnalisé et des conseillers 
           prêts à t’accompagner. Fais le premier pas vers ta réussite !</p>
       </div>
       <div class="col-12 col-lg-6">

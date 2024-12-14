@@ -1,29 +1,31 @@
-
-   
-    jQuery(document).ready(function($) {
-        $('.grid-conseillers').slick({
-            infinite: true,
-            slidesToShow: 3,  // Número de conseillers visibles
-            slidesToScroll: 1,
-            dots: true,       // Activar los puntos de navegación
-            arrows: true,     // Flechas para navegar
-            autoplay: true,   // Deslizar automáticamente
-            autoplaySpeed: 3000, // Velocidad del autoplay
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                    }
+jQuery(document).ready(function($) {
+    $('.grid-conseillers').slick({
+        infinite: true,
+        mobileFirst: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        useCSS:  true, 
+        dots: true, 
+        useTransform: true,
+        touchMove: true,
+        focusOnChange: true,
+        arrows: true,
+        speed: 1000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 1,
+                  infinite: true
                 }
-            ]
-        });
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                 slidesToShow: 2,
+                 dots: true
+                }
+            }
+        ]
+    });
 });
-});
-

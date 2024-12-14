@@ -37,6 +37,11 @@ add_action('wp_enqueue_scripts', 'ajouter_slick');
 wp_enqueue_script('jquery');
 add_action('wp_enqueue_scripts', 'styles_scripts');
 
+function ajouter_google_fonts() {
+  wp_enqueue_style('google-fonts-lato', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap', false);
+}
+add_action('wp_enqueue_style', 'ajouter_google_fonts');
+
  
 function wpdocs_theme_slug_widgets_init() {
 	register_sidebar( array(
