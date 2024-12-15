@@ -191,8 +191,6 @@ function enregistrer_cpt_profils_conseillers() {
   register_post_type('profil_conseillers', $args);
 }
 
-
-
 add_action('add_meta_boxes', 'ajouter_metabox_profils');
 add_action('save_post', 'sauvegarder_metabox_profils');
 
@@ -246,5 +244,34 @@ function sauvegarder_metabox_profils($post_id) {
   }
   
 }
+add_action('init', 'register_quiz_question_post_type');
+function register_quiz_question_post_type() {
+  $labels = array(
+      'name'               => 'Quiz questions',
+      'singular_name'      => 'Questions',
+      'add_new'            => 'Ajouter une Nouvelle Question',
+      'add_new_item'       => 'Ajouter une Nouvelle Question',
+      'edit_item'          => 'Modifier la Question',
+      'new_item'           => 'Nouvelle Question',
+      'view_item'          => 'Voir la Question',
+      'search_items'       => 'Rechercher des Questions',
+      'not_found'          => 'Aucune question trouvé',
+      'not_found_in_trash' => 'Aucune question trouvé dans la corbeille',
+  );
 
+    $args = array ( 
+      'labels'             => $labels,
+      'public'             => true,
+      'has_archive'        => false,
+      'rest_base'          => 'quiz-question',
+      'menu_position'      => 20,
+      'menu_icon'          => 'dashicons-welcome-learn-more',
+      'rewrite'            => array('slug' => 'profil-conseillers'),
+      'supports'           => array('title', 'thumbnail', 'editor'),
+
+    );
+
+
+  register_post_type('quiz_question', $args);
+}
 

@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <div class="col-2"></div>
                 <div class="col-2">
-            <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
+            <img class="logo-nav ms-4" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
         </div>
         </a> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
             wp_nav_menu(array(
                 'theme_location' => 'header',
                 'container' => false,
-                'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0'
+                'menu_class' => 'navbar-nav me-auto mb-2 me-5 mb-lg-0'
             ));
             ?>
             </div>
@@ -44,17 +44,9 @@
 
                     <a class="btn btn-connecter" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
                 <?php endif; ?>
-            
-        
     </div>
     </div>
 </nav>     
 </div>
-
-  
-
-
-
-     
-    
-    <?php wp_body_open(); ?> 
+</header>
+    <?php wp_body_open(); ?>    

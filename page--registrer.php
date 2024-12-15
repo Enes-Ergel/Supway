@@ -57,7 +57,7 @@ get_header();
             </div>
         </div>
             <div class="imagenseconnecter col-lg-6 col-12 order-1 order-lg-1">
-            <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="d-flex justify-content-center align-items-center h-100 mb-5">
             <img  src="<?php echo get_template_directory_uri(); ?>/assets/img/Inscription-student-page.svg" 
                  class="img-fluid" alt="Description de l'image">
             </div>
