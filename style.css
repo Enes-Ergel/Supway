@@ -293,6 +293,16 @@ form a:hover {
 }
 
 /* Conseillers */
+
+
+
+.grid-conseillers .slick-list {
+  overflow: hidden; 
+  width: 100%;
+  margin: 0; 
+  padding: 0; 
+}
+
 .container-conseillers {
   max-width: 848px;
   max-height: 519px;
@@ -351,3 +361,4 @@ form a:hover {
   font-size: 15px;
   color: #ffffff;
 }
+
