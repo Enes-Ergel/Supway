@@ -1,4 +1,13 @@
-<?php /* Template Name: advisors page */ get_header(); ?>
+<?php /* Template Name: advisors page */ 
+ 
+ if (!is_user_logged_in()) {
+    // si je suis déjà connecté je suis redirigé vers la page home
+   wp_redirect( esc_url(get_permalink(get_page_by_path('/redirection'))) );
+      exit;
+  }
+  
+
+ get_header(); ?>
 
 <div class="container-conseillers">
     <h1>Nos Conseillers</h1>
@@ -22,7 +31,9 @@
         ?>
                 <div class="conseiller">
                     <?php if ($image): ?>
-                        <img src="<?php echo esc_url($image); ?>" alt="<?php the_title(); ?>" class="image-conseiller">
+                        <?php the_post_thumbnail('medium', [
+                            'class' => 'image-conseiller',
+                        ]); ?>
                     <?php endif; ?>
                     <h2><?php the_title(); ?></h2>
                     <p><strong> <?php echo esc_html($travail); ?> </strong> </p>

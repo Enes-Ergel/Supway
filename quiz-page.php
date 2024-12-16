@@ -1,9 +1,13 @@
-<?php /* Template Name: Quiz Page */ get_header(); ?>
+<?php /* Template Name: Quiz Page */
 
-<div class="container">
-    <?php echo do_shortcode(the_content()); ?>
-</div>
-<?php
+if (!is_user_logged_in()) {
+    // si je suis déjà connecté je suis redirigé vers la page home
+   wp_redirect( esc_url(get_permalink(get_page_by_path('/redirection'))) );
+      exit;
+  }
+  
+
+get_header(); ?>
 // Shortcode pour afficher le quiz d'orientation scolaire
 //function orientation_quiz_shortcode() {
     ob_start();

@@ -11,16 +11,16 @@
 
 <body 
 <?php body_class(); ?>>
-<header>
-
+<header class="mt-3">
+ 
 <div class="container-fluid p-0">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <div class="col-2"></div>
                 <div class="col-2">
-            <img class="logo-nav ms-4" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
+            <img class="logo-nav ms-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
         </div>
-        </a> 
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,13 +37,14 @@
             </div>
             
                 <?php if (is_user_logged_in()): ?>
-                    
+                        <div class="button-container">
                     <a class="btn btn-danger me-2" href="<?php echo wp_logout_url(home_url('/')); ?>">Déconnexion</a>
                 <?php else: ?>
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="btn btn-inscrire me-2">S'inscrire</a>
+                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="btn btn-inscrire">S'inscrire</a>
 
-                    <a class="btn btn-connecter" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
+                    <a class="btn btn-connecter ms-3" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
                 <?php endif; ?>
+            </div>
     </div>
     </div>
 </nav>     
