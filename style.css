@@ -526,12 +526,34 @@
   #menu-nav-bar li:not(:last-child) {
         margin-right: 20px;
   }
-  #menu-nav-bar a {
-    color: black;
-
-  }
-
-  .button-container {
-    
-  }
   
+  #menu-nav-bar a {
+    color: red;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+  }
+
+  #menu-nav-bar a:hover {
+  text-decoration: underline;
+}
+
+  #quiz-navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.quiz-question {
+    margin-bottom: 20px;
+}
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+
+

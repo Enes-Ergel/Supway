@@ -1,11 +1,13 @@
 <?php
 /* Template Name: page redirect */ 
 
-get_header();
-
-?>
+ get_header(); ?>
 
 
-
+<?php echo "Désolé..."; ?>
+<?php echo "Vous devez être inscrit pour avoir accès à cette page"; ?>
+<p>
+<img class="image-404" src="<?php get_template_directory_uri();?>/assets/img/image-redirection.svg">
+</p>
 
 <?php get_footer(); ?>

@@ -46,8 +46,7 @@
               <p>Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? 
               Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.</p>
               </div>
-              <a id="azul" class="btn btn-inscrire me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/'))); ?>">S'inscrire</a>
-              <button type="button" id= "azul" class="btn btn-inscrire me-2 ms-5">Rejoignez-nous</button>
+              <a id="azul" class="btn btn-inscrire me-2 ms-5" class="btn btn-inscrire me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>">Rejoignez-nous</a>
           </div>
           <div class="col-12 col-lg-6">
             <img class="img-intro" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-smartphone 1.svg">

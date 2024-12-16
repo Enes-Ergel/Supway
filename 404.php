@@ -1,5 +1,4 @@
-<?php get_header(); ?>
-
+<?php /* Template Name: 404 */ get_header(); ?>
 
 <?php echo "Erreur 404"; ?>
 <?php echo "Vous êtes perdu en tentant de trouver votre voie ?"; ?>
