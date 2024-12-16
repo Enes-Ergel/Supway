@@ -190,7 +190,9 @@ function afficher_metabox_profils($post) {
   $travail = get_post_meta($post->ID, '_travail', true);
   $email = get_post_meta($post->ID, '_email', true);
   $numero = get_post_meta($post->ID, '_numero', true);
-  $photo = get_post_meta($post->ID, '_photo', true);
+  $image_id = get_post_meta($post->ID, '_image', true);
+    $image_url = $image_id ? wp_get_attachment_image_src($image_id, 'thumbnail')[0] : '';
+  
   ?>
   <p>
       <label for="travail">Poste de Travail :</label>
@@ -204,17 +206,15 @@ function afficher_metabox_profils($post) {
       <label for="numero">Numéro de Téléphone :</label>
       <input type="text" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
   </p>
-  <p>
-        <label for="photo">Photo de Profil :</label>
-        <input type="hidden" id="photo" name="photo" value="<?php echo esc_attr($photo); ?>">
-        <input type="button" id="upload-photo-button" class="button" value="Télécharger une Image">
-        <div id="photo-preview" style="margin-top:10px;">
-            <?php if ($photo): ?>
-                <img src="<?php echo esc_url($photo); ?>" style="max-width:100%; height:auto;">
-            <?php endif; ?>
-        </div>
-    </p>
-    
+  <div>
+        <img id="imagen-preview" src="<?php echo esc_url($image_url); ?>" style="max-width:100%; height:auto;">
+        <input type="hidden" id="imagen-id" name="image" value="<?php echo esc_attr($image_id); ?>">
+        <button type="button" class="button" id="subir-imagen"><?php _e('Publier image', 'textdomain'); ?></button>
+        <button type="button" class="button" id="eliminar-imagen"><?php _e('Eliminer image', 'textdomain'); ?></button>
+    </div>
+
+  
+
   <?php
 }
 
@@ -231,8 +231,8 @@ function sauvegarder_metabox_profils($post_id) {
   if (array_key_exists('numero', $_POST)) {
       update_post_meta($post_id, '_numero', sanitize_text_field($_POST['numero']));
   }
-  if (array_key_exists('photo', $_POST)) {
-    update_post_meta($post_id, '_photo', esc_url_raw($_POST['photo']));
+  if (isset($_POST['image'])) {
+    update_post_meta($post_id, '_image', sanitize_text_field($_POST['image']));
 }
 }
 
@@ -254,3 +254,38 @@ function charger_script_metabox($hook) {
   }
 }
 add_action('admin_enqueue_scripts', 'charger_script_metabox');
+
+
+
+
+add_action('init', 'enregistrer_quiz');
+function enregistrer_quiz_post_type() {
+  $labels = array(
+      'name'               => 'Quiz',
+      'singular_name'      => 'Question',
+      'add_new'            => 'Ajouter une nouvelle question',
+      'add_new_item'       => 'Ajouter une nouvelle question',
+      'edit_item'          => 'Modifier la question',
+      'new_item'           => 'Nouvelle question',
+      'view_item'          => 'Voir la question',
+      'search_items'       => 'Rechercher des questions',
+      'not_found'          => 'Aucune question trouvé',
+      'not_found_in_trash' => 'Aucune question trouvé dans la corbeille',
+      'menu_name'             => 'Questions Quiz',
+  );
+
+  $args = array(
+      'labels'             => $labels,
+      'public'             => true,
+      'has_archive'        => false,
+      'rewrite'            => array('slug' => 'Quiz'),
+      'supports'           => array('title', 'thumbnail', 'editor'),
+      'menu_icon'          => 'dashicons-id',
+  );
+
+  register_post_type('quiz', $args);
+
+
+  
+
+}

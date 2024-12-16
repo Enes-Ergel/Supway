@@ -1,4 +1,12 @@
-<?php /* Template Name: Quiz Page */ get_header(); ?>
+<?php /* Template Name: Quiz Page */
+
+if (!is_user_logged_in()) {
+
+   wp_redirect( home_url('/') );
+      exit;
+  }
+
+get_header(); ?>
 
 <div class="container">
     <?php echo do_shortcode(the_content()); ?>
