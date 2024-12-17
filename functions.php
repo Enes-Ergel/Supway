@@ -26,7 +26,7 @@ function styles_scripts()
     get_template_directory_uri() . '/script.js',
     array('jquery'),
     ['bootstrap-bundle'],
-    1,
+    2,
     true
   );
 }
@@ -54,27 +54,6 @@ function wpdocs_theme_slug_widgets_init() {
 }
 add_action( 'widgets_init', 'wpdocs_theme_slug_widgets_init' );
 
-// Agregar clases personalizadas a los <li> y <a>
-/*
-add_filter('nav_menu_css_class', 'agregar_clases_al_menu', 10, 3); //Le dice a WordPress que aplique la función agregar_clases_al_menu al filtro nav_menu_css_class, Este filtro permite modificar las clases CSS que WordPress agrega a los elementos <li> de los menús. El número 10 es la prioridad del filtro, y 3 significa que la función recibirá tres parámetros.
-function agregar_clases_al_menu($classes, $item, $args) { //$classes: Es un array de clases CSS predeterminadas para el <li>. $item: Contiene información del elemento de menú (como el título, URL, etc.). $args: Contiene información sobre el menú que se está renderizando, incluyendo su ubicación (theme_location).
-   if ($args->theme_location == 'menu_principal') { //Verifica si el menú que se está procesando tiene el identificador menu_principal (declarado al registrar el menú en functions.php). Si es el caso, agrega la clase nav-item (requerida por Bootstrap para los elementos <li>).
-       $classes[] = 'nav-item'; // Clase Bootstrap para <li>
-   }
-   return $classes;
-}
-
-
-
-add_filter('nav_menu_link_attributes', 'agregar_clases_a_los_enlaces', 10, 3);
-function agregar_clases_a_los_enlaces($atts, $item, $args) {
-   if ($args->theme_location == 'menu_principal') {
-       $atts['class'] = 'nav-link active'; // Clase Bootstrap para <a>
-   }
-   return $atts;
-}
-*/
-
 register_nav_menu('header', 'En tête du menu');
 function montheme_menu_class($classes) {
   $classes[] = 'nav-item';
@@ -97,9 +76,6 @@ function create_account(){
   $pass   = ( isset($_POST['upass']) && !empty($_POST['upass']) ) ? sanitize_text_field( $_POST['upass'] ) : '';
   $repass = ( isset($_POST['repass']) && !empty($_POST['repass']) ) ? sanitize_text_field( $_POST['repass'] ) : '';
 
-  
-
-
 if ( $pass !== $repass ) {
     wp_die('Les mots de passe ne correspondent pas.');
 }
@@ -113,7 +89,6 @@ if ( $pass !== $repass ) {
 		$user_email = wp_slash( $email );
 		$user_pass = $pass;
 
-     // Agregar nombre y apellido al arreglo de datos
 		
      $userdata = compact('user_login', 'user_email', 'user_pass');
      $userdata['first_name'] = $fname;
@@ -122,10 +97,10 @@ if ( $pass !== $repass ) {
 		$user_id = wp_insert_user($userdata);
 
 		if( !is_wp_error($user_id) ) {
-			// user has been created
-			$user = new WP_User( $user_id );
-			$user->set_role( 'contributor' ); // type d'user que je veux a ce moment la
-			// redirection après connexion
+
+      $user = new WP_User( $user_id );
+			$user->set_role( 'contributor' ); 
+		
 			wp_redirect(esc_url(home_url('/')));
 			exit;
 		} else {

@@ -30,21 +30,25 @@ get_header();
     $questionsCount = 0;
     while ($questions->have_posts()) : $questions->the_post(); 
     ?>
-        <div class="quiz-question" id="question-<?= $q; ?>" <?= $q === 1 ? '' : 'style="display: none;"'; ?>>
+        <div class="quiz-question" id="question-<?= $q; ?>">
             <h4><?php the_title(); ?></h4>
-            <?php foreach(explode("|", get_field('response')) as $res): ?>
-                <label>
+            <?php $r= 1; foreach(explode("|", get_field('response')) as $res):?>
+                <label class="reponses">
                     <?php $response = explode(';;', $res); ?>
-                    <input type="radio" name="question-<?= $q; ?>" value="<?= $response[1]; ?>" />
+                    <input 
+                        type="radio" name="question-<?= $q; ?>" 
+                        
+                        id="question-<?= $q; ?>-repoonse<?= $r; ?>"
+                        value="<?= $response[1]; ?>" />
                     <?= $response[0]; ?>
                 </label>
-            <?php endforeach; ?>
+            <?php $r++; endforeach; ?>
         </div>
     <?php $q++; $questionsCount++; endwhile; ?>
 </div>
 <div id="quiz-navigation">
-    <button id="prev-question" disabled>Précédent</button>
-    <button id="next-question">Suivant</button>
+    <button id="prev-question" type="button">Précédent</button>
+    <button id="next-question"  type="button">Suivant</button>
 </div>
 
             <!-- foreach ($questions as $index => $q) {
@@ -67,8 +71,9 @@ get_header();
         </div>
     </div>
     <script>
+        const totalQuestionsCount = <?php echo $questionsCount; ?>;
         jQuery(document).ready(function($) {
-            const totalQuestionsCount = <?php echo $questionsCount; ?>;
+            // const totalQuestionsCount = <?php echo $questionsCount; ?>;
             console.log({ totalQuestionsCount })
 
             $('#orientation-quiz-form').on('submit', function(e) {
@@ -116,8 +121,8 @@ get_header();
                     $('#recommended-domain').text("Vous n'avez pas répondu à suffisamment de questions pour déterminer un domaine.");
                 }
 
-                $('#quiz-result').show();
-                $('#orientation-quiz-form').hide();
+                // $('#quiz-result').show();
+                // $('#orientation-quiz-form').hide();
             });
         });
     </script>
