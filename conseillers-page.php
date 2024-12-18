@@ -26,7 +26,7 @@ get_header(); ?>
                 while ($query->have_posts()) : $query->the_post();
                     
                     $travail = get_post_meta(get_the_ID(), '_travail', true);
-                    $dispo = get_post_meta(get_the_ID(), '_disponibilite', true);
+                    $dispo = get_post_meta(get_the_ID(), '_dispo', true);
                     $email = get_post_meta(get_the_ID(), '_email', true);
                     $numero = get_post_meta(get_the_ID(), '_numero', true);
                     $image = get_the_post_thumbnail_url(get_the_ID(), 'medium'); 
@@ -34,7 +34,7 @@ get_header(); ?>
                     <div class="carousel-item <?php echo $is_first ? 'active' : ''; ?>">
                         <div class="conseiller">
                             <?php if ($image): ?>
-                                <img src="<?php echo esc_url($image); ?>" class="d-block w-100 image-conseiller" alt="<?php the_title_attribute(); ?>">
+                                <img src="<?php echo esc_url($image); ?>" class="image-conseiller" alt="<?php the_title_attribute(); ?>">
                             <?php endif; ?>
                             <div class="carousel-caption d-none d-md-block">
                                 <h2><?php the_title(); ?></h2>

@@ -450,6 +450,12 @@
       margin: 50px;
     }
     /* Conseillers */
+
+    .image-conseiller {
+      height: 300px;
+      width: 200px;
+
+    }
   
     .grid-conseillers .slick-list {
       overflow: hidden; 
@@ -477,7 +483,6 @@
     
     .conseiller {
       border: none;
-      border-radius: 20px;
       padding: 20px;
       background-color: #0097B2;
       text-align: start;

@@ -189,7 +189,7 @@ function ajouter_metabox_profils() {
 function afficher_metabox_profils($post) {
  
   $travail = get_post_meta($post->ID, '_travail', true);
-  $dispo = get_post_meta($post->ID, '_disponibilite', true);
+  $dispo = get_post_meta($post->ID, '_dispo', true);
   $email = get_post_meta($post->ID, '_email', true);
   $numero = get_post_meta($post->ID, '_numero', true);
   
@@ -220,7 +220,9 @@ function sauvegarder_metabox_profils($post_id) {
   if (array_key_exists('travail', $_POST)) {
       update_post_meta($post_id, '_travail', sanitize_text_field($_POST['travail']));
   }
-  
+  if (array_key_exists('dispo', $_POST)) {
+      update_post_meta($post_id, '_dispo', sanitize_text_field($_POST['dispo']));
+  }
   if (array_key_exists('email', $_POST)) {
       update_post_meta($post_id, '_email', sanitize_email($_POST['email']));
   }
