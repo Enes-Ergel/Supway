@@ -20,7 +20,7 @@
  <br>
  <li>Forme juridique : Association Sans But Lucratif (ASBL)</li>
  <br>
- <li>Adresse postale du sièce social : Rue des Étudiants 123, 1000 Bruxelles, Belgique</li>
+ <li>Adresse postale du siège social : Rue des Étudiants 123, 1000 Bruxelles, Belgique</li>
  <br>
  <li>Numéro de téléphone : 0495 02 83 19 </li>
  <br>

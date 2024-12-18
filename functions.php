@@ -21,6 +21,9 @@ function styles_scripts()
     1,
     true
   );
+
+  
+
   wp_enqueue_script(
     'app-js',
     get_template_directory_uri() . '/script.js',
@@ -35,10 +38,10 @@ function ajouter_slick() {
   wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
   wp_enqueue_style('slick-theme', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css');
 }
-add_action('wp_enqueue_scripts', 'ajouter_slick');
+add_action('wp_enqueue_scripts', 'ajouter_slick', );
 
 wp_enqueue_script('jquery');
-add_action('wp_enqueue_scripts', 'styles_scripts');
+add_action('wp_enqueue_scripts', 'styles_scripts', );
 
 function ajouter_google_fonts() {
   wp_enqueue_style('google-fonts-lato', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap', false);
@@ -186,6 +189,7 @@ function ajouter_metabox_profils() {
 function afficher_metabox_profils($post) {
  
   $travail = get_post_meta($post->ID, '_travail', true);
+  $dispo = get_post_meta($post->ID, '_disponibilite', true);
   $email = get_post_meta($post->ID, '_email', true);
   $numero = get_post_meta($post->ID, '_numero', true);
   
@@ -193,6 +197,10 @@ function afficher_metabox_profils($post) {
   <p>
       <label for="travail">Poste de Travail :</label>
       <input type="text" id="travail" name="travail" value="<?php echo esc_attr($travail); ?>" style="width:100%;">
+  </p>
+  <p>
+      <label for="dispo">Disponibilité</label>
+      <input type="text" id="dispo" name="dispo" value="<?php echo esc_attr($dispo); ?>" style="width:100%;">
   </p>
   <p>
       <label for="email">Email :</label>

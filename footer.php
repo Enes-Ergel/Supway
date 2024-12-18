@@ -3,7 +3,7 @@
 
 <footer class="container-fluid row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
     
-    <div class="col mb-3 mx-auto">
+    <div class="col-12 mb-3 mx-auto">
       <button><a href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>">Nous contacter</a></button>
    <div class="col mb-3 d-flex justify-content-center align-items-center">
   <div class="nav flex-column text-start">
@@ -43,7 +43,7 @@
     
     <div class="d-flex align-items-center">
       <img class="picto me-2" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/graph.svg" alt="Connexion">
-      <p class="nav-item mb-0 liens-footer">
+      <p class="q liens-footer">
         <a href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>" class="nav-link p-0 items-footer">
           Se connecter
         </a>
@@ -68,11 +68,6 @@
 </div>
 
 </footer>
-   
-
-
-
-
 
 </body>
 </html>
