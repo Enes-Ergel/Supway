@@ -1,5 +1,5 @@
 
-jQuery(document).ready(function($) {
+/*jQuery(document).ready(function($) {
     $('.grid-conseillers').slick({
         infinite: true,
         mobileFirst: true,
@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
             }
         ]
     });
-});
+}); */
 
 const carousel = document.querySelector(".carousel");
 firstslide = carousel.querySelector(".grid-conseillers .conseiller") [0];
