@@ -287,7 +287,39 @@ footer h5:hover {
 
 /* Conseillers */
 
+.carousel {
+  position: relative;
+  max-width: 848px;
+}
 
+.carousel i {
+ top: 50%;
+ height: 46px;
+ width: 46px;
+ cursor: pointer;
+ position: absolute;
+ font-size: 1.2rem;
+ text-align: center;
+ line-height: center;
+ background-color: #0097B2;
+ border-radius: 50%;
+ transform: translateY(-50%);
+}
+
+.carousel i:first-child {
+ left: -23px;
+}
+
+.carousel i {
+ right: -23px;
+}
+
+.carousel .grid-conseillers {
+  cursor: pointer;
+  overflow: hidden;
+  white-space: inherit;
+  scroll-behavior: smooth;
+}
 
 .grid-conseillers .slick-list {
   overflow: hidden; 

@@ -13,6 +13,8 @@
 
 <div class="container-conseillers">
     <h1>Nos Conseillers</h1>
+<div class="carousel">
+    <i id="left" class="fa-solid fa-angle-left"></i>
     <div class="grid-conseillers">
         <?php
        
@@ -53,6 +55,8 @@
             echo '<p>Aucun conseiller trouvé.</p>';
         endif;
         ?>
+    </div>
+    <i id="right" class="fa-solid fa-angle-right"></i>
     </div>
 </div>
 

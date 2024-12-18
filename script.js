@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
         mobileFirst: true,
         slidesToShow: 1,  
         slidesToScroll: 1,
+        spaceBetween: 80,
         useCSS:  true, 
         dots: true, 
         useTransform: true,
@@ -34,5 +35,29 @@ jQuery(document).ready(function($) {
     });
 });
 
+const carousel = document.querySelector(".carousel");
+firstslide = carousel.querySelector(".grid-conseillers .conseiller") [0];
+arrowsIcons = document.querySelector(".carousel i")
 
+let firstslideWidth = firstslide.clientWidth + 14;
+let scrollWidth = carousel.scrollWidth - carousel.clientWidth; 
+
+const showHideIcons = () => {
+  arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+  arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+}
+
+arrowIcons.forEach (icon => {
+icon.addEventListener("click",() => {
+  if(icon.id == "left") {
+    carousel.scrollLeft -= firstSlideWidth;
+    
+  } else {
+    carousel.scrollLeft += firstSlideWidth;
+  }
+                       
+ showHideIcons(); 
+   })
+
+});
 

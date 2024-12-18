@@ -18,6 +18,15 @@ function styles_scripts()
     1,
     true
   );
+
+  wp_enqueue_script(
+    'css-layout',
+    'https://cdnjs.cloudflare.com/ajax/libs/css-layout/1.1.1/css-layout.min.js',
+    array(),
+    '1.1.1',
+    true
+  );
+
   wp_enqueue_script(
     'app-js',
     get_template_directory_uri() . '/script.js',
@@ -26,7 +35,7 @@ function styles_scripts()
     true
   );
 }
-add_action('wp_enqueue_scripts', 'styles_scripts');
+add_action('wp_enqueue_scripts', 'styles_scripts', 'cargar_css_layout_script');
 
  
 function wpdocs_theme_slug_widgets_init() {
