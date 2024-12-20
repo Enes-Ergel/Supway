@@ -7,7 +7,7 @@ if (!is_user_logged_in()) {
 }
 
 get_header(); ?>
-
+<div class="container-fluid"></div>
 <div class="container-conseillers">
     <h1>Nos Conseillers</h1>
     

@@ -15,7 +15,7 @@ get_header();
         <div class="contenedortextoinscrire col-lg-6 col-12 order-1 order-lg-2">
             
 
-            <?php if ( isset($_GET['success']) && $_GET['success'] == 1 ): ?>
+            <?php if (isset($_GET['success']) && $_GET['success'] == 1 ): ?>
                 <p style="color: green;">Inscription réussie ! Vous pouvez maintenant vous connecter.</p>
             <?php endif; ?>
             <div class="form-sinscrire">
@@ -47,7 +47,7 @@ get_header();
 				<br>
 				<br>
 
-                <p id="textepasinscrit">Déjà membre ?  <a href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>"> Se connecter</a></p>
+                <p id="textepasinscrit">Déjà membre ?  <a class="ms-1" href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>"> Se connecter</a></p>
 
                 <div class="d-flex justify-content-center align-items-center h-100">
                 <input type="hidden" name="create_account_nonce" value="<?php echo wp_create_nonce('create_account_action'); ?>">

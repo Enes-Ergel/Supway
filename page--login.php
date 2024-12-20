@@ -15,14 +15,13 @@ get_header();
 <div class="container">
     <div class="row">
 
-       
         <div class="imagenseconnecter col-12 col-lg-6 order-2 order-lg-2">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-diplome.svg" 
                  alt="Description de l'image">
         </div>
 
         
-        <div class="contenedortextoconnecter col-12 col-lg-6 order-1 order-lg-1">
+        <div class="conteneur-connexion col-12 col-lg-6 order-1 order-lg-1">
             <h1 class="titreseconnecter">Se connecter</h1>
             <br>
             <br>
@@ -42,7 +41,7 @@ get_header();
                 
                 <p id="textepasinscrit">
                     Vous n’êtes pas encore inscrit ? 
-                    <a  href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S’inscrire</a>
+                   <a class="ms-1" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S’inscrire</a>
                 </p>
                 <div class="d-flex justify-content-center align-items-center h-100"> 
                 <input class="button-sinscrire" type="submit" name="submit" value="Se connecter">
@@ -53,7 +52,5 @@ get_header();
     </div>
 </div>
 </div>
-<br>
-<br>
 
 <?php get_footer(); ?>

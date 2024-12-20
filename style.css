@@ -1,4 +1,10 @@
-/* Theme Name: Supway */
+/*
+Theme Name: Supway
+Theme URI: http://localhost:8888/wordpress
+Description: A custom WordPress theme.
+Version: 1.0
+Author: Enes Pascal
+*/
 
 /* Nav bar */
 
@@ -49,15 +55,12 @@
       }
     
       h1, h2 {
-        
         color: black;
-        
       }
-      
+  
       .textocontenedor2 {
         color: #bcbcbc;
         font-size: 24px;
-        
       }
       
       .texto {
@@ -78,7 +81,7 @@
         grid-column-end: 6;
       }
       
-      #azul {
+      .azul {
         background-color: #0097B2;
         width: 140px;
         height: 60px;
@@ -97,144 +100,66 @@
       
     
       /* home page */
-    
-      .img-intro {
-        width: 540px;
-        height: 522px;
-      }
 
-      @media screen and (max-width: 768px) {
+      @media (min-width: 768px) and (max-width: 1024px) {
         .img-intro {
+            height: 500px;
             width: 400px;
-            height: 380px;
         }
+      
     }
-      .container-fluid {
-        width: 100%;
-      }
 
-      .titre-homepage {
-        font-size: 32px;
-        font-family: 'Lato', sans-serif;
-        font-weight: bold;
-        color: #0097B2;
-        margin-left: 50px;
-        margin-top: 150px;
-      }
-
-      .container-image1 {
-        margin-left: 50px;
-      }
-
-      .rubrique2 {
-        width: 100%;
-        height: 500px;
-        background-color: #0097B2;
-        margin: none;
-        padding: none;
-        box-sizing: border-box;
-        
-      }
-
-      .titre-rubrique3 {
-        font-family: 'Lato', sans-serif;
-        color: #0097B2;
-        font-weight: bold;
-      }
-      
-      #picto1 {
-        width: 70px;
-        height: 60px;
-      }
-
-      #picto2 {
-        width: 70px;
-        height: 70px;
-      }
-
-      #picto3 {
-        width: 57px;
-        height: 79px;
-      }
-
-      .card-text {
-       font-weight: bold;
-      }
-      
-      .container-nosobjectifs {
-        background-color: #BFDD7D;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-      }
-
-      .nosobjectifs {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      
-      .card {
-        border-radius: 15px;
-        border-color: black;
-        background-color: #BFDD7D;
-        border-width: 3px;
-        width: 320px;
-        height: 240px;
-      }
-      
-      .corps-texte {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
-        width: 600px;
-        height: 100px;
-        margin-left: 50px;
-      }
-      @media screen and (max-width: 768px) {
+    @media (min-width: 1025px) {
+        .titre-homepage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .corps-texte {
-          font-size: 14px;
-            width: 300px;
-            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
     }
-      
-  
-      .corps-texte2 {
-        font-family: 'Lato', sans-serif;
-        font-size: 18px;
-        width: 600px;
-        height: 189px;
-        color: #FFFFFF;
-  
-      }
-      .container-fin {
-        height: 600px;
-      }
-
-      .rubrique3 {
-        margin-top: 225px;
-
-      }
-      
-       /* Style par défaut pour desktop */
-        .arrow {
-            transform: rotate(0deg);
-            width: 50px;
-            height: 45px;
-        }
-
-        /* Style pour mobile : rotation de 90° */
-        @media screen and (max-width: 768px) {
-            .arrow {
-                transform: rotate(90deg);
-            }
-        }
-
-      .rubrique1 {
-        width: 100%;
-        height: 750px;
-      }
     
+    .corps-texte2 {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      color: #FFFFFF;
+      padding: 20px;
+    }
+    .img-intro4 {
+      width: 314px;
+      height: 174px;
+    }
+    
+    .container-nosobjectifs {
+      background-color: #BFDD7D;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .nosobjectifs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .card {
+      border-radius: 15px;
+      border-color: black;
+      background-color: #BFDD7D;
+      border-width: 3px;
+      padding: 20px;
+    }
+
       /*Contact*/
       .titrenouscontacter {
         color: #0097B2;
@@ -334,16 +259,25 @@
       }
       
       form a:hover {
-        text-decoration: underline;
+        color: #0097B2;
       }
-      
+
+      .navbar-nav:hover {
+        color: #0097B2;
+      }
+
       /*footer*/
+
+      html, body {
+        margin: 0;
+        height: 100%;
+       
+      }
       
       footer {
         background-color: #CAE9EB;
         width:1400px; 
         height: 258px;
-        
         
       }
       
@@ -400,7 +334,9 @@
       .items-footer:hover {
         color: #0097B2;
       }
-      
+      .container-fluid {
+        width: 100%;
+      }
       
       /* Se connecter */
       .titreseconnecter {
@@ -419,7 +355,16 @@
         display: flex;
         justify-content: center;
       }
-      
+      .conteneur-connexion {
+        display: flex; /* Active Flexbox */
+        flex-direction: column; /* Aligne les enfants verticalement */
+        justify-content: center; /* Centre verticalement */
+        align-items: center; /* Centre horizontalement */
+        height: 100%; /* S'assure que le conteneur utilise tout l'espace disponible */
+        text-align: center; /* Centre le texte si nécessaire */
+        padding: 0;
+        margin: 0;
+    }
       /* Mentions légales */
     
     .titrementions {
@@ -569,10 +514,13 @@ button:disabled {
     cursor: not-allowed;
 }
 
-
-
-
-
 .hidden {
-  display: none !important;
+  display: none !important
+}
+
+/*page redirection*/
+
+#desole {
+  color: #0097B2;
+  font-size: 34px;
 }
