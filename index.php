@@ -3,8 +3,8 @@
 <section>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center h-100">
-
+    <div class="col-12 col-md-6 col-lg-6">
+    <div class="conteneur-">
     <h1 class="titre-homepage">Supway, la voie du supérieur</h1>
     <p class="corps-texte">Tu te demandes quoi faire après la rhéto ? Ou tu cherches  à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway !</p>
       <div class="button-container">
@@ -12,8 +12,9 @@
       <a id="azul" class="btn btn-inscrire me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
       </div>
     </div>
+  </div>
       <div class="col-12 col-md-6 col-lg-6 pt-5 mt-5">
-      <img class="img-intro container-image1" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-page-intro.svg">
+      <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-page-intro.svg">
       </div>
       </div>
     </div>
@@ -74,7 +75,7 @@
 <div class="col-12 col-lg-3">
 <div class="card align-items-center mb-5">
   <p class="card-text  mt-4 ms-3 me-3">Orienter les jeunes avec un quiz personnalisé qui recommande des filières et formations adaptées à leur profil.</p>
-  <div >
+  <div>
     <img id="picto1" class="mt-3" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/graph.svg" alt="Graphique">
   </div>
 </div>

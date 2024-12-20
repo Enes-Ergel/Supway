@@ -160,6 +160,10 @@ Author: Enes Pascal
       padding: 20px;
     }
 
+    .container-image1 {
+      margin-left: 50px;
+    }
+
       /*Contact*/
       .titrenouscontacter {
         color: #0097B2;
@@ -355,16 +359,7 @@ Author: Enes Pascal
         display: flex;
         justify-content: center;
       }
-      .conteneur-connexion {
-        display: flex; /* Active Flexbox */
-        flex-direction: column; /* Aligne les enfants verticalement */
-        justify-content: center; /* Centre verticalement */
-        align-items: center; /* Centre horizontalement */
-        height: 100%; /* S'assure que le conteneur utilise tout l'espace disponible */
-        text-align: center; /* Centre le texte si nécessaire */
-        padding: 0;
-        margin: 0;
-    }
+  
       /* Mentions légales */
     
     .titrementions {
@@ -462,6 +457,17 @@ Author: Enes Pascal
       font-size: 15px;
       color: #ffffff;
     }
+
+    carousel-caption.text-top-right {
+      position: absolute;
+      top: 10px; /* Distance par rapport au haut */
+      right: 10px; /* Distance par rapport à la droite */
+      text-align: right; /* Alignement du texte */
+      background: rgba(255, 255, 255, 0.8); /* Optionnel : Fond blanc semi-transparent */
+      padding: 10px; /* Espacement autour du texte */
+      border-radius: 5px; /* Optionnel : Coins arrondis */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optionnel : Légère ombre */
+  }
   
     /* Page 404 */
   

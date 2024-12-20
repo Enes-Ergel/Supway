@@ -113,6 +113,26 @@ if ( $pass !== $repass ) {
 }
 add_action('init', 'create_account');
 
+add_action('wp_login_failed', 'custom_login_failed_redirect');
+function custom_login_failed_redirect($username) {
+    $redirect_url = home_url('/se-connecter/?login=failed'); 
+    wp_redirect($redirect_url);
+    exit;
+}
+
+// Redirige en cas de champs vides
+add_filter('authenticate', 'custom_login_authenticate_redirect', 30, 3);
+function custom_login_authenticate_redirect($user, $username, $password) {
+    if (is_wp_error($user)) {
+        $redirect_url = home_url('/se-connecter/?login=empty'); 
+        if (isset($user->errors['empty_username']) || isset($user->errors['empty_password'])) {
+            wp_redirect($redirect_url);
+            exit;
+        }
+    }
+    return $user;
+}
+
 //Contact
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
@@ -262,4 +282,10 @@ function register_quiz_question_post_type() {
 
   register_post_type('quiz_question', $args);
 }
+
+add_filter('show_admin_bar', function($show) {
+  return current_user_can('administrateur') ? $show : false;
+});
+
+
 

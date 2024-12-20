@@ -7,7 +7,7 @@ if (!is_user_logged_in()) {
 }
 
 get_header(); ?>
-<div class="container-fluid"></div>
+<div class="container-fluid">
 <div class="container-conseillers">
     <h1>Nos Conseillers</h1>
     
@@ -36,16 +36,17 @@ get_header(); ?>
                             <?php if ($image): ?>
                                 <img src="<?php echo esc_url($image); ?>" class="image-conseiller" alt="<?php the_title_attribute(); ?>">
                             <?php endif; ?>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2><?php the_title(); ?></h2>
-                                <p><strong><?php echo esc_html($travail); ?></strong></p>
-                                <p><strong>Disponibilité :</strong> <?php echo esc_html($dispo); ?></p>
-                                <p><strong>Email :</strong> <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p>
-                                <p><strong>Numéro :</strong> <a href="tel:<?php echo esc_attr($numero); ?>"><?php echo esc_html($numero); ?></a></p>
-                                <div class="description">
-                                    <?php the_content(); ?>
-                                </div>
-                            </div>
+                            <div class="carousel-caption d-block text-top-right">
+                            <h2><?php the_title(); ?></h2>
+                            <p><strong><?php echo esc_html($travail); ?></strong></p>
+                            <p><strong>Disponibilité :</strong> <?php echo esc_html($dispo); ?></p>
+                            <p><strong>Email :</strong> <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p>
+                            <p><strong>Numéro :</strong> <a href="tel:<?php echo esc_attr($numero); ?>"><?php echo esc_html($numero); ?></a></p>
+                            <div class="description">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+
                         </div>
                     </div>
             <?php
@@ -68,5 +69,5 @@ get_header(); ?>
         </button>
     </div>
 </div>
-
+</div>
 <?php get_footer(); ?>
