@@ -42,7 +42,7 @@
 
                     <a class="btn btn-connecter" href="<?php echo esc_url(home_url('/se-connecter')); ?>">Se connecter</a>
                 <?php endif; ?>
-            </>
+        </div>
         </div>
     </div>
 </nav>     
