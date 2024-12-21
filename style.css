@@ -287,6 +287,13 @@ footer h5:hover {
 
 /* Conseillers */
 
+.container-fluid .rubrique2 {
+  margin-bottom: 30px;
+}
+
+
+
+
 .carousel {
   position: relative;
   max-width: 848px;

@@ -3,18 +3,9 @@
 
  get_header(); ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
-     
+<div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">    
       <h2 id="desole">Désolé...Vous devez être inscrit pour avoir accès à cette page.</h2>
-      
-
-      <img class="image-404" src="<?php echo get_template_directory_uri(); ?>/assets/img/Loading-pana.svg" alt="Image de désolé">
-    </div>
-  </div>
 </div>
-
 
 <div class="container col-12 d-flex flex-column justify-content-center align-items-center text-center">
     <div class="row">
@@ -24,6 +15,16 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex flex-column justify-content-center align-items-center text-center">
+      <img class="image-404" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-redirection.svg" alt="Image de désolé">
+    </div>
+  </div>
+</div>
+
+
 
 
 
