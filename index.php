@@ -80,16 +80,22 @@
 
 <section>
 <div class="container-fluid rubrique2" style="background-color: #0097b2";>
+
+      <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
+          <img class="img-fluid container-image2" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-conseiller.svg">
+      </div>
+
       <div class="row">
         <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2 order-lg-2">
-          <p class="corps-texte2 d-flex justify-content-center align-items-center h-100">
-          Grâce à notre quiz interactif et à une communauté de conseillers passionnés, nous t’aidons à découvrir le chemin qui te correspond. 
-          Ces conseillers sont là pour t’accompagner et te permettre de t’insérer au mieux dans la section qui te correspond.
-          </p>
+        <h2 class="ms-lg-5 mb-4">Contactez nos conseillers</h2>
+        <p class="ms-lg-5">
+        Si vous êtes étudiant universitaire et que vous avez besoin d'orientation pour prendre des décisions académiques, 
+        personnelles ou professionnelles, nos conseillers sont là pour vous aider. Avec leur expertise et leur engagement,
+        ils vous offriront le soutien nécessaire pour surmonter les défis, améliorer vos performances et atteindre vos objectifs.
+        N'hésitez pas à nous contacter et à faire le premier pas vers un avenir réussi. Nous sommes là pour vous accompagner dans votre parcours académique et personnel !
+        </p>
         </div>
-        <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
-          <img class="img-fluid container-image2" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-book.svg">
-      </div>
+        
      </div>
   </section>
 
