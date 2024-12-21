@@ -139,7 +139,7 @@ function send_mail_data() {
 	$email = sanitize_email($_POST['email']);
 	$message = sanitize_textarea_field($_POST['message']);
 
-	$adminmail = "destino@dominio.com"; 
+	$adminmail = "ergelenes24@gmail.com"; 
 	$subject = 'Formulaire de contact'; 
 	$headers = "Reply-to: " . $name . " <" . $email . ">";
 
@@ -279,7 +279,7 @@ function register_quiz_question_post_type() {
 }
 
 add_filter('show_admin_bar', function($show) {
-  return current_user_can('administrateur') ? $show : false;
+  return current_user_can('administrator') ? $show : false;
 });
 
 

@@ -15,7 +15,7 @@ get_header();
     ?>
 
 <section>
-  <div class="container-fluid quiz">
+  <div class="container-fluid quiz" style="background-color: #0097b2;">
     <div class="row pt-5 ps-5 align-items-center">
      
       <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
@@ -29,7 +29,7 @@ get_header();
       <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
         <img 
           class="img-fluid" 
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/image-quizz.svg" 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/image-pagequizz.svg" 
           alt="Student Image">
       </div>
     </div>
@@ -37,7 +37,7 @@ get_header();
 </section>
 
     <div id="orientation-quiz-container">
-        <form id="orientation-quiz-form">
+        <form method="POST" id="orientation-quiz-form">
             <?php
 
             // Questions et choix associés aux domaines
@@ -76,80 +76,57 @@ get_header();
     <button id="next-question"  type="button">Suivant</button>
 </div>
 
-            <!-- foreach ($questions as $index => $q) {
-                echo '<div class="quiz-question">';
-                echo '<h4>Question ' . ($index + 1) . ': ' . esc_html($q['question']) . '</h4>';
-                foreach ($q['options'] as $optionIndex => $option) {
-                    echo '<label>';
-                    echo '<input type="radio" name="question-' . $index . '" value="' . esc_attr($option['domain']) . '"> ';
-                    echo esc_html($option['text']);
-                    echo '</label><br>';
-                }
-                echo '</div>';
+
+            <?php
+// Initialiser les compteurs pour chaque domaine
+$domaines = [
+    'Science' => 0,
+    'Social' => 0,
+    'Art' => 0,
+    'Technique' => 0
+];
+
+// Récupérer les réponses de l'utilisateur (soumettez les données via POST par exemple)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    foreach ($_POST as $key => $value) {
+        // Vérifier si la clé correspond à une question
+        if (strpos($key, 'question-') === 0) {
+            // Ajouter 1 au domaine correspondant
+            if (isset($domaines[$value])) {
+                $domaines[$value]++;
             }
-            ?> -->
-            <button type="submit">Soumettre</button>
-        </form>
-        <div id="quiz-result" style="display: none;">
-            <h3>Votre domaine d'études recommandé :</h3>
-            <p id="recommended-domain"></p>
-        </div>
-    </div>
-    <script>
-        const totalQuestionsCount = <?php echo $questionsCount; ?>;
-        jQuery(document).ready(function($) {
-            // const totalQuestionsCount = <?php echo $questionsCount; ?>;
-            console.log({ totalQuestionsCount })
+        }
+    }
+}
 
-            $('#orientation-quiz-form').on('submit', function(e) {
-                e.preventDefault();
+// Trouver le domaine majoritaire
+$dominateur = array_search(max($domaines), $domaines);
 
-                // Initialiser les scores
-                var scores = {
-                    "Science": 0,
-                    "Social": 0,
-                    "Art": 0,
-                    "Technique": 0
-                };
+// Afficher une réponse en fonction du domaine majoritaire
+switch ($dominateur) {
+    case 'Science':
+        $message = "Vous excellez dans le domaine scientifique !";
+        break;
+    case 'Social':
+        $message = "Vous êtes fait pour les sciences humaines et sociales !";
+        break;
+    case 'Art':
+        $message = "Vous avez un talent artistique incroyable !";
+        break;
+    case 'Technique':
+        $message = "Le domaine technique est fait pour vous !";
+        break;
+    default:
+        $message = "Aucun domaine dominant détecté.";
+        break;
+}
 
-                // Parcourir toutes les réponses sélectionnées
-                $('#orientation-quiz-form input[type="radio"]:checked').each(function() {
-                    var domain = $(this).val();
-                    if (scores.hasOwnProperty(domain)) {
-                        scores[domain]++;
-                    }
-                });
+//var_dump($dominateur);
+?>
 
-                // Déterminer le domaine avec le score le plus élevé
-                // var maxScore = 0;
-                let recommendedDomain = '';
-                 // $.each(scores, function(domain, score) {
-                //     console.log({ scores, score })
-                //     if (score > maxScore) {
-                //         maxScore = score;
-                //         recommendedDomain = domain;
-                //     }
-                // });
+<button type="button">Soumettre</button>
+<?php echo "<p>$message</p>"; ?>
+</form>
 
-                // Définir les descriptions des domaines
-                var domains = {
-                    "Science": "Des carrières en Médecine, biologie, chimie, physique ou informatique sont possibles.",
-                    "Social": "Des carrières en Psychologie, sociologie, éducation ou ressources humaines sont possibles.",
-                    "Art": "Des carrières en Design, beaux-arts, littérature, musique ou architecture sont possibles.",
-                    "Technique": "Des carrières en Génie civil, mécanique, électronique ou artisanat sont possibles."
-                };
-
-                // Afficher le résultat
-                if (recommendedDomain !== '') {
-                    $('#recommended-domain').text('Vous devez faire des études en ' + recommendedDomain + ' ! ' + domains[recommendedDomain]);
-                } else {
-                    $('#recommended-domain').text("Vous n'avez pas répondu à suffisamment de questions pour déterminer un domaine.");
-                }
-
-                // $('#quiz-result').show();
-                // $('#orientation-quiz-form').hide();
-            });
-        });
-    </script>
-   
+  
 <?php get_footer(); ?>     

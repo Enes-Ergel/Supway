@@ -391,7 +391,7 @@ Author: Enes Pascal
     }
     /* Conseillers */
 
-    .container-fluid .rubrique2 {
+    /*.container-fluid .rubrique2 {
       margin-bottom: 100px;
     }
 
@@ -433,7 +433,7 @@ Author: Enes Pascal
       font-size: 15px;
       color: #ffffff;
     }
-
+*/
     carousel-caption.text-top-right {
       position: absolute;
       top: 10px; /* Distance par rapport au haut */
@@ -500,9 +500,112 @@ button:disabled {
   display: none !important
 }
 
-/*page redirection*/
 
 #desole {
   color: #0097B2;
   font-size: 34px;
+}
+
+.slider-container {
+  background-color: #f9f9f9; 
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.slider-container h1 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.grid-conseillers {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center; 
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; 
+}
+
+.card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+
+.card-body {
+  padding: 30px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+  color: #fff;
+}
+
+
+@media (max-width: 1200px) {
+  .card {
+    width: 45%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%; 
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-subtitle,
+  .card-text {
+    font-size: 0.9rem;
+  }
 }

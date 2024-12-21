@@ -1,52 +1,62 @@
+let activeQuestion = 1;
+const nextButton = document.getElementById("next-question");
+const prevButton = document.getElementById("prev-question");
+//const totalQuestionsCount = <?= $questionsCount; ?>; // Nombre total de questions
 
+// Fonction pour afficher la question active
+const showCurrentQuestion = function () {
+    $('.quiz-question').addClass('hidden'); // Masquer toutes les questions
+    document.getElementById(`question-${activeQuestion}`).classList.remove('hidden'); // Afficher la question active
+}
 
+// Fonction pour activer/désactiver les boutons suivant et précédent
+const setDisableBtn = function () {
+    prevButton.removeAttribute("disabled");
+    nextButton.removeAttribute("disabled");
 
-    let activeQuestion = 1;
-    const nextButton = document.getElementById("next-question");
-    const prevButton = document.getElementById("prev-question");
-
-    const showCurrentQuestion = function () {
-        $('.quiz-question').addClass('hidden');
-        document.getElementById(`question-${activeQuestion}`).classList.remove('hidden');
+    // Désactiver le bouton "Précédent" si on est à la première question
+    if (activeQuestion === 1) {
+        prevButton.setAttribute("disabled", "");
     }
 
-    const setDisableBtn = function () {
-        prevButton.removeAttribute("disabled")
-        nextButton.removeAttribute("disabled")
-        if (activeQuestion === 1) {
-            prevButton.setAttribute("disabled", "");
-        }
-        if (activeQuestion === totalQuestionsCount) {
-            nextButton.setAttribute("disabled", "");
-        }
+    // Désactiver le bouton "Suivant" si on est à la dernière question
+    if (activeQuestion === totalQuestionsCount) {
+        nextButton.setAttribute("disabled", "");
     }
+}
 
-    const init = function() {
-        showCurrentQuestion();
-        setDisableBtn();
-    }
-    
+// Fonction d'initialisation
+const init = function() {
+    showCurrentQuestion();
+    setDisableBtn();
+}
 
-    init();
+init(); // Initialisation du quiz
 
-    nextButton.addEventListener("click", (event) => {
-        console.log({ event, totalQuestionsCount })
-        activeQuestion++;
-        showCurrentQuestion();
-        setDisableBtn();
-        // nextButton.innerHTML = `Nombre de clics : ${event.detail}`;
-    });
-    prevButton.addEventListener("click", (event) => {
-        console.log({ event, totalQuestionsCount })
-        activeQuestion--;
-        showCurrentQuestion();
-        setDisableBtn();
-        // nextButton.innerHTML = `Nombre de clics : ${event.detail}`;
-    });
+// Écouteur d'événement pour le bouton "Suivant"
+nextButton.addEventListener("click", (event) => {
+    activeQuestion++; // Passer à la question suivante
+    showCurrentQuestion();
+    setDisableBtn();
+});
 
-    $(`reponses`).click((event) => {
-        console.log({ event })
-    });
+// Écouteur d'événement pour le bouton "Précédent"
+prevButton.addEventListener("click", (event) => {
+    activeQuestion--; // Revenir à la question précédente
+    showCurrentQuestion();
+    setDisableBtn();
+});
+
+// Capture des réponses à chaque clic sur une option
+$(".reponses input").click(function(event) {
+    const questionId = $(this).attr('name'); // Récupérer le nom de la question
+    const answerValue = $(this).val(); // Récupérer la valeur de la réponse sélectionnée
+
+    // Envoyer la réponse de manière dynamique via AJAX ou mettre à jour une variable en JavaScript
+    console.log(`Question: ${questionId}, Réponse: ${answerValue}`);
+});
+
+   
 
     // jQuery(document).ready(function($) {
     //     const setNextQuestion = function () {
@@ -112,5 +122,9 @@
     // //       nextQuestion.show();       
     // //     }
     // //   });
+
+
+
+
 
 
