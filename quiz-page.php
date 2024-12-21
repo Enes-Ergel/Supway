@@ -7,10 +7,35 @@ if (!is_user_logged_in()) {
   }
 
 get_header();
+
+
 // Shortcode pour afficher le quiz d'orientation scolaire
 //function orientation_quiz_shortcode() {
     ob_start();
     ?>
+
+<section>
+  <div class="container-fluid quiz">
+    <div class="row pt-5 ps-5 align-items-center">
+     
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+        <h2 class="titre-rubrique3 ms-lg-5 mb-4">Venez répondre à notre quiz interactif</h2>
+        <p class="corps-texte ms-lg-5">
+        Il y aura 10 questions simples, auxquelles vous devrez répondre honnêtement afin que la réponse finale soit la plus précise possible et puisse vous aider.
+        </p>
+      </div>
+
+     
+      <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
+        <img 
+          class="img-fluid" 
+          src="<?php echo get_template_directory_uri(); ?>/assets/img/image-quizz.svg" 
+          alt="Student Image">
+      </div>
+    </div>
+  </div>
+</section>
+
     <div id="orientation-quiz-container">
         <form id="orientation-quiz-form">
             <?php

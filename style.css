@@ -391,18 +391,17 @@ Author: Enes Pascal
     }
     /* Conseillers */
 
+    .container-fluid .rubrique2 {
+      margin-bottom: 100px;
+    }
+
     .image-conseiller {
       height: 300px;
       width: 200px;
 
     }
   
-    .grid-conseillers .slick-list {
-      overflow: hidden; 
-      width: 100%;
-      margin: 0; 
-      padding: 0; 
-    }
+    
   
     .container-conseillers {
       max-width: 848px;
@@ -421,31 +420,8 @@ Author: Enes Pascal
     }
     
     
-    .conseiller {
-      border: none;
-      padding: 20px;
-      background-color: #0097B2;
-      text-align: start;
-      transition: box-shadow 0.3s ease;
-      color: #FFFFFF;
-    }
-    
     .conseiller:hover {
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .conseiller h2 {
-      font-size: 1.5em;
-      margin: 10px 0;
-    }
-    
-    .conseiller p {
-      margin: 5px 0;
-    }
-    
-    .conseiller a {
-      color: #0073aa;
-      text-decoration: none;
     }
     
     .conseiller a:hover {
