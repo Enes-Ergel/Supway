@@ -61,3 +61,45 @@ icon.addEventListener("click",() => {
 
 });
 
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.grid-conseillers'); // Selecciona el contenedor del slider
+  if (slider) {
+    let isDown = false; // Estado del mouse (presionado o no)
+    let startX; // Posición inicial del mouse
+    let scrollLeft; // Posición inicial del scroll
+
+    // Cuando se presiona el mouse
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    // Cuando el mouse sale del slider
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    // Cuando se suelta el mouse
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    // Movimiento del mouse
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return; // Si no está presionado, no hacer nada
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Velocidad del desplazamiento
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  }
+});
+
