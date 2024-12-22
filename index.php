@@ -4,15 +4,15 @@
     <div class="row pt-5 ps-5 align-items-center">
     
       <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
-        <h1 class="titre-homepage ms-lg-5 mb-4">Supway, la voie du supérieur</h1>
+        <h1 class="titre-homepage ms-lg-5">Supway, la voie du supérieur</h1>
         <p class="corps-texte ms-lg-5">
           Tu te demandes quoi faire après la rhéto ? Ou tu cherches à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway !
         </p>
 
        
         <div class="ms-lg-5 d-flex">
-          <a id="azul" class="btn btn-inscrire me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S'inscrire</a>
-          <a id="azul" class="btn btn-inscrire" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
+          <a id="btn-1" class="btn me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S'inscrire</a>
+          <a id="btn-2" class="btn" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
         </div>
       </div>
 
@@ -154,7 +154,7 @@
         </p>
       </div>
       <div class="col-12 col-lg-6  d-flex flex-column align-items-start text-container">
-                <img class="me-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/étudiant-avec-conseiller.svg">
+                <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/étudiant-avec-conseiller.svg">
       </div>
 
 

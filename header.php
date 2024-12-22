@@ -18,11 +18,11 @@
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <div class="col-2"></div>
                 <div class="col-2">
-            <img class="logo-nav ms-lg-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
+            <img class="logo-nav ms-lg-5 ms-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
         </div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon me-5"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
         <div class="col-7"></div>

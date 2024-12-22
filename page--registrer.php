@@ -21,15 +21,7 @@ get_header();
             <div class="form-sinscrire">
                 <h1 class="titreseconnecter">S'inscrire</h1>
             <form method="post" name="myForm">
-                
-                <label for="fname">Prénom</label>
-                <input type="text" id="fname" name="fname" required />
 
-                
-                <label for="lname">Nom</label>
-                <input type="text" id="lname" name="lname" required />
-
-               
                 <label for="uname">Nom d'utilisateur</label>
                 <input type="text" id="uname" name="uname" required />
 

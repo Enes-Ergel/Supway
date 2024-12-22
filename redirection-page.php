@@ -10,7 +10,7 @@
       <h2 id="desole">Désolé...Vous devez être inscrit pour avoir accès à cette page.</h2>
       
 
-      <img class="image-404" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-redirection.svg" alt="Image de désolé">
+      <img class="image-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-redirection.svg">
     </div>
   </div>
 </div>

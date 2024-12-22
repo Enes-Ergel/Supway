@@ -32,6 +32,15 @@ Author: Enes Pascal
         border-radius: 50px;
         transition: background-color 0.3s ease;
       }
+
+      .btn-1 {
+        color: rgb(0, 0, 0);
+        background-color: #0097b2;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+        width: 196px;
+        height: 68px;
+      }
       
       .btn-inscrire:hover {
         background-color: #D4E9A0;
@@ -111,11 +120,6 @@ Author: Enes Pascal
 
     @media (min-width: 1025px) {
         .titre-homepage {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .corps-texte {
             display: flex;
             justify-content: center;
             align-items: center;
