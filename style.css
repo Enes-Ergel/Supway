@@ -403,117 +403,132 @@ footer h5:hover {
 
 
 
+/* conseiller */
 
-
-
-
-
-
-/* Contenedor del slider */
-.slider-container {
-  background-color: #f9f9f9; 
-  padding: 40px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-/* Título */
-.slider-container h1 {
-  font-size: 20px;
+.titre-conseillers {
+  color: #0097B2;
+  font-size: 36px;
   font-weight: bold;
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-/* Contenedor de las tarjetas */
-.grid-conseillers {
-  display: flex; 
-  flex-wrap: wrap; /* Permite que las tarjetas se ajusten a la siguiente línea si es necesario */
-  gap: 20px; /* Espaciado entre las tarjetas */
-  justify-content: center; /* Centra las tarjetas en el contenedor */
-}
-
-/* Tarjetas */
-.card {
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%; /* Ancho completo por defecto */
-}
-
-.card:hover {
-  transform: translateY(-10px); /* Sombra al pasar el cursor */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Imagen de las tarjetas */
-.card-img-top {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  object-fit: cover;
-  width: 100%;
-  height: 200px;
-}
-
-/* Contenido de la tarjeta */
-.card-body {
-  padding: 30px;
-  text-align: center;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.card-subtitle {
-  font-size: 1rem;
-  color: #555;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.btn-success {
-  background-color: #28a745;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-success:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-  color: #fff;
-}
-
-/* Responsividad */
-@media (max-width: 1200px) {
-  .card {
-    width: 45%; /* Dos tarjetas por fila en pantallas medianas */
   }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 100%; /* Una tarjeta por fila en pantallas pequeñas */
+  
+  .titre-conseillers + p {
+    font-size: 17px;
+   
   }
-
-  .card-title {
-    font-size: 1.1rem;
+  
+  .slider-container {
+    background-color: #0097B2; 
+    
   }
-
-  .card-subtitle,
-  .card-text {
+  
+  .slider-container h1 {
+    margin: 0 10px;
+    font-size: 34px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+  
+  .grid-conseillers {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
+  }
+  
+  /* Tarjetas */
+  .card-conseiller {
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px 6px rgba(0, 0, 0, 0.1);
+    border-color: #0097B2;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+  }
+  
+  .card-conseiller:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .card-conseiller-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+  }
+  
+  
+  .card-conseiller body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-conseiller-title {
+    padding-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0097B2;
+  }
+  
+  .card-conseiller-subtitle {
+    font-size: 20px;
+    color: #000000;
+  }
+  
+  .card-conseiller-text {
     font-size: 0.9rem;
+    color: #000000;
+    margin-bottom: 15px;
   }
-}
+  
+  .btn-success {
+    background-color:#BFDD7D;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .btn-success:hover {
+    background-color: #A9C76C;
+    transform: scale(1.05);
+    color: #fff;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 1200px) {
+    .card-conseiller {
+      width: 33%; 
+      
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-conseiller {
+      width: 100%;
+    }
+  
+    .card-conseiller-title {
+      font-size: 30px;
+    }
+  
+    .card-conseiller-subtitle,
+    .card-conseiller-text {
+      font-size: 20px;
+    }
+  }
+  
+  
+
+
+
+
+

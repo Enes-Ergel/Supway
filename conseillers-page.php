@@ -11,6 +11,31 @@
 
  get_header(); ?>
 
+<section>
+  <div class="container-fluid rubrique2">
+    <div class="row">
+     
+      <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2 order-lg-2 d-flex flex-column justify-content-center align-items-start">
+        <h2 class="titre-conseillers ms-lg-5 mb-4">Contactez nos conseillers</h2>
+        <p class="ms-lg-5">
+          Si vous êtes étudiant universitaire et que vous avez besoin d'orientation pour prendre des décisions académiques, 
+          personnelles ou professionnelles, nos conseillers sont là pour vous aider. Avec leur expertise et leur engagement,
+          ils vous offriront le soutien nécessaire pour surmonter les défis, améliorer vos performances et atteindre vos objectifs.
+          N'hésitez pas à nous contacter et à faire le premier pas vers un avenir réussi. Nous sommes là pour vous accompagner dans votre parcours académique et personnel !
+        </p>
+      </div>
+
+      
+      <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
+        <img class="img-fluid container-image2" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-conseillers.svg">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 <div class="slider-container section4 py-5">
     <h1 class="text-center mb-5">Nos Conseillers</h1>
     <div class="grid-conseillers row">
@@ -32,15 +57,15 @@
                 $dispo = get_post_meta(get_the_ID(), '_dispo', true);
         ?>
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 border-0 text-center">
+                    <div class="card-conseiller h-100 border-0 text-center">
                         <?php if ($image) : ?>
                             <img src="<?php echo esc_url($image); ?>" class="card-img-top" alt="<?php the_title(); ?>">
                         <?php endif; ?>
-                        <div class="card-body">
-                            <h5 class="card-title"><?php the_title(); ?></h5>
-                            <p class="card-subtitle text-muted"><?php echo esc_html($travail); ?></p>
+                        <div>
+                            <h5 class="card-conseiller-title"><?php the_title(); ?></h5>
+                            <p class="card-conseiller-subtitle text-muted"><?php echo esc_html($travail); ?></p>
                             <hr>
-                            <p class="card-text"><strong>Disponibilidad:</strong> <?php echo esc_html($dispo); ?></p>
+                            <p class="card-conseiller-text"><strong>Disponibilité:</strong> <?php echo esc_html($dispo); ?></p>
                             <a href="mailto:<?php echo esc_attr($email); ?>" class="btn btn-success">Contacter</a>
                         </div>
                     </div>

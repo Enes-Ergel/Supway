@@ -126,14 +126,13 @@ add_action('init', 'create_account');
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
 add_action( 'admin_post_process_form', 'send_mail_data' );
-
 function send_mail_data() {
 
 	$name = sanitize_text_field($_POST['name']);
 	$email = sanitize_email($_POST['email']);
 	$message = sanitize_textarea_field($_POST['message']);
 
-	$adminmail = "destino@dominio.com"; 
+	$adminmail = get_option('admin_email'); 
 	$subject = 'Formulaire de contact'; 
 	$headers = "Reply-to: " . $name . " <" . $email . ">";
 
@@ -143,7 +142,7 @@ function send_mail_data() {
 
 	$sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
 
-	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
+	wp_redirect(esc_url(home_url('/')));
 }
 
 
