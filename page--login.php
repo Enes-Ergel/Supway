@@ -9,10 +9,9 @@ if (is_user_logged_in()) {
 get_header();
 // attention c'est important de faire les redirection avant le header sinon la redirection ne marche pas
 ?>
-<br>
-<br>
 
-<div class="container">
+<section>
+<div class="container-fluid">
     <div class="row">
 
         <div class="imagenseconnecter col-12 col-lg-6 order-2 order-lg-2">
@@ -22,9 +21,7 @@ get_header();
 
         
         <div class="conteneur-connexion col-12 col-lg-6 order-1 order-lg-1">
-            <h1 class="titreseconnecter">Se connecter</h1>
-            <br>
-            <br>
+            <h1 class="titreseconnecter mt-5">Se connecter</h1>
             <form action="<?php echo esc_url(site_url('wp-login.php', 'login_post')); ?>" method="post">
 
                 
@@ -37,14 +34,13 @@ get_header();
                     <label for="pwd">Mot de passe</label>
                     <input type="password" name="pwd" id="pwd">
                 </div>
-
                 
                 <p id="textepasinscrit">
                     Vous n’êtes pas encore inscrit ? 
                    <a class="ms-1" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S’inscrire</a>
                 </p>
                 <div class="d-flex justify-content-center align-items-center h-100"> 
-                <input class="button-sinscrire" type="submit" name="submit" value="Se connecter">
+                <input class="button-sinscrire mb-5" type="submit" name="submit" value="Se connecter">
                 <input type="hidden" name="redirect_to" 
                        value="<?php echo esc_url(home_url('/')); ?>">
 
@@ -52,5 +48,6 @@ get_header();
     </div>
 </div>
 </div>
+</section>
 
 <?php get_footer(); ?>

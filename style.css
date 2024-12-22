@@ -270,11 +270,13 @@ Author: Enes Pascal
         color: #0097B2;
       }
 
-      .navbar-nav:hover {
-        color: #0097B2;
-      }
+      
 
       /*footer*/
+
+      .nav-item:hover {
+        color: #000000;
+      }
 
       html, body {
         margin: 0;
@@ -393,62 +395,122 @@ Author: Enes Pascal
     .form-sinscrire {
       margin: 50px;
     }
+
     /* Conseillers */
 
-    /*.container-fluid .rubrique2 {
-      margin-bottom: 100px;
-    }
 
-    .image-conseiller {
-      height: 300px;
-      width: 200px;
-
+    .titre-conseillers {
+    color: #0097B2;
+    font-size: 36px;
+    font-weight: bold;
     }
-  
+      
+      .titre-conseillers + p {
+        font-size: 17px;
+      
+      }
+      
+      .slider-container {
+        background-color: #0097B2; 
+        
+      }
+      
+      .slider-container h1 {
+        margin: 0 10px;
+        font-size: 34px;
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 30px;
+      }
+      
+      .grid-conseillers {
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 80px; 
+        justify-content: center; 
+      }
+      
+      /* Tarjetas */
+      .card-conseiller {
+        border-radius: 20px;
+        box-shadow: 4px 4px 6px 6px rgba(0, 0, 0, 0.1);
+        border-color: #0097B2;
+        background-color: #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        max-width: 400px;
+        height: 200px;
+      }
+      
+      .card-conseiller:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      }
     
-  
-    .container-conseillers {
-      max-width: 848px;
-      max-height: 519px;
-      margin: 0 auto;
-      padding: 20px;
-     
-    }
+      .card-conseiller-title {
+        padding-top: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #0097B2;
+      }
+      
+      .card-conseiller-subtitle {
+        font-size: 20px;
+        color: #000000;
+      }
+      
+      .card-conseiller-text {
+        font-size: 0.9rem;
+        color: #000000;
+        margin-bottom: 15px;
+      }
+      
+      .btn-success {
+        background-color:#BFDD7D;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-bottom: 10px;
+      }
+      
+      .btn-success:hover {
+        background-color: #A9C76C;
+        transform: scale(1.05);
+        color: #fff;
+      }
+      
+      @media (max-width: 768px) {
+        .card-conseiller {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          margin: 0 auto;
+          padding: 20px;
+          }
+          .card-img-top {
+            margin: 0;
+            padding: 0;
+            
+          }
+        }
+      
+        .card-conseiller-title {
+          font-size: 30px;
+        }
+      
+        .card-conseiller-subtitle,
+        .card-conseiller-text {
+          font-size: 20px;
+        }
+      
+      .card-img-top {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
     
-    .container-conseillers h1 {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 30px;
-      color: #0097B2;
-      font-weight: bold;
-    }
-    
-    
-    .conseiller:hover {
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .conseiller a:hover {
-      text-decoration: underline;
-    }
-    
-    .description {
-      margin-top: 15px;
-      font-size: 15px;
-      color: #ffffff;
-    }
-*/
-    carousel-caption.text-top-right {
-      position: absolute;
-      top: 10px; /* Distance par rapport au haut */
-      right: 10px; /* Distance par rapport à la droite */
-      text-align: right; /* Alignement du texte */
-      background: rgba(255, 255, 255, 0.8); /* Optionnel : Fond blanc semi-transparent */
-      padding: 10px; /* Espacement autour du texte */
-      border-radius: 5px; /* Optionnel : Coins arrondis */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optionnel : Légère ombre */
-  }
-  
     /* Page 404 */
   
     .image-404 {
@@ -484,7 +546,7 @@ Author: Enes Pascal
   }
 
   #menu-nav-bar a:hover {
-  text-decoration: underline;
+  color: #0097B2;
 }
 
   #quiz-navigation {
@@ -510,106 +572,10 @@ button:disabled {
   font-size: 34px;
 }
 
-.slider-container {
-  background-color: #f9f9f9; 
-  padding: 40px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
+/* Redirection */
 
-.slider-container h1 {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.grid-conseillers {
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 20px; 
-  justify-content: center; 
-}
-
-/* Tarjetas */
-.card {
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%; 
-}
-
-.card:hover {
-  transform: translateY(-10px); 
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card-img-top {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  object-fit: cover;
-  width: 100%;
-  height: 200px;
-}
-
-.card-body {
-  padding: 30px;
-  text-align: center;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.card-subtitle {
-  font-size: 1rem;
-  color: #555;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.btn-success {
-  background-color: #28a745;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-success:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-  color: #fff;
-}
-
-
-@media (max-width: 1200px) {
-  .card {
-    width: 45%; 
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 100%; 
-  }
-
-  .card-title {
-    font-size: 1.1rem;
-  }
-
-  .card-subtitle,
-  .card-text {
-    font-size: 0.9rem;
+@media screen and (max-width: 992px) {
+  #image-redirection {
+    max-width: 500px;
   }
 }

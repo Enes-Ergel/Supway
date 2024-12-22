@@ -90,7 +90,6 @@
         Faites la différence dès aujoud'hui en devenant un acteur clé de leur réussite !
         </p>
       </div>
-
     </div>
   </div>
 </section>

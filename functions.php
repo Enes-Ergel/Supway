@@ -66,9 +66,7 @@ add_filter('nav_menu_css_class', 'montheme_menu_class');
 add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
 
 function create_account(){
-	//You may need some data validation here
-  $fname  = ( isset($_POST['fname']) && !empty($_POST['fname']) ) ? sanitize_text_field( $_POST['fname'] ) : '';
-  $lname  = ( isset($_POST['lname']) && !empty($_POST['lname']) ) ? sanitize_text_field( $_POST['lname'] ) : '';
+  
   $user   = ( isset($_POST['uname']) && !empty($_POST['uname']) ) ? sanitize_user( $_POST['uname'] ) : '';
   $email  = ( isset($_POST['uemail']) && !empty($_POST['uemail']) ) ? sanitize_email( $_POST['uemail'] ) : '';
   $pass   = ( isset($_POST['upass']) && !empty($_POST['upass']) ) ? sanitize_text_field( $_POST['upass'] ) : '';
@@ -89,8 +87,6 @@ if ( $pass !== $repass ) {
 
 		
      $userdata = compact('user_login', 'user_email', 'user_pass');
-     $userdata['first_name'] = $fname;
-     $userdata['last_name'] = $lname;  
 
 		$user_id = wp_insert_user($userdata);
 
@@ -132,14 +128,13 @@ function custom_login_authenticate_redirect($user, $username, $password) {
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
 add_action( 'admin_post_process_form', 'send_mail_data' );
-
 function send_mail_data() {
 
 	$name = sanitize_text_field($_POST['name']);
 	$email = sanitize_email($_POST['email']);
 	$message = sanitize_textarea_field($_POST['message']);
 
-	$adminmail = "ergelenes24@gmail.com"; 
+	$adminmail = get_option('admin_email'); 
 	$subject = 'Formulaire de contact'; 
 	$headers = "Reply-to: " . $name . " <" . $email . ">";
 
@@ -149,7 +144,7 @@ function send_mail_data() {
 
 	$sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
 
-	wp_redirect( home_url("/?page_id=14")."?sent=".$sendmail ); 
+	wp_redirect(esc_url(home_url('/')));
 }
 
 function enable_svg_upload($mimes) {
