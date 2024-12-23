@@ -577,22 +577,17 @@ border: none;
 
 /*Style spécifiques pour la page quizz */
 
-/* Styles spécifiques pour le quiz */
-.quiz {
-  padding: 2rem 0;
-  color: white;
-  background-color: #0097b2;
-}
-
+/* Styles pour le conteneur du quiz */
 #orientation-quiz-container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #BFDD7D;
+  background-color: white;
   border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Style du compteur de questions */
 #question-counter {
   text-align: center;
   font-size: 1.2rem;
@@ -600,6 +595,7 @@ border: none;
   margin-bottom: 1.5rem;
 }
 
+/* Styles des questions */
 .quiz-question {
   display: none;
   margin-bottom: 2rem;
@@ -611,6 +607,7 @@ border: none;
   font-size: 1.2rem;
 }
 
+/* Styles des réponses personnalisées */
 .reponses {
   display: block;
   margin: 1rem 0;
@@ -619,5 +616,90 @@ border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
+  position: relative;
+  background-color: white;
+}
+
+/* État au survol des réponses */
+.reponses:hover {
+  background-color: #f0f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 151, 178, 0.1);
+}
+
+/* Style de la réponse active/sélectionnée */
+.reponses.active {
+  background-color: #0097b2;
+  color: white;
+  border-color: #0097b2;
+}
+
+/* Cache les boutons radio natifs */
+.reponses input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Styles des boutons de navigation */
+#quiz-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.btn-prev, .btn-next, #submit-quiz {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-prev {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-next {
+  background-color: #0097b2;
+  color: white;
+}
+
+#submit-quiz {
+  background-color: #BFDD7D;
+  color: black;
+  display: block;
+  margin: 2rem auto 0;
+}
+
+/* Styles des résultats */
+#quiz-results {
+  display: none;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.result-message {
+  font-size: 1.2rem;
+  color: #0097b2;
+  margin: 1rem 0;
+}
+
+.results-breakdown {
+  margin-top: 2rem;
+}
+
+.results-breakdown ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results-breakdown li {
+  margin: 0.5rem 0;
+  color: #495057;
 }

@@ -1,19 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialisation des variables
+    // Variables globales pour le suivi des questions et réponses
     let currentQuestion = 1;
     const totalQuestions = document.querySelectorAll(".quiz-question").length;
     let answers = {};
 
-    // Initialiser l'affichage
+    // Initialisation du quiz
     function initQuiz() {
+        // Cache toutes les questions sauf la première
         document.querySelectorAll(".quiz-question").forEach((question, index) => {
             question.style.display = index === 0 ? "block" : "none";
         });
+        setupCustomRadios();
         updateCounter();
         updateNavigation();
     }
 
-    // Mettre à jour le compteur de questions
+    // Configuration des zones de réponse personnalisées
+    function setupCustomRadios() {
+        document.querySelectorAll('.reponses').forEach(label => {
+            // Cache les boutons radio natifs
+            const radio = label.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.style.opacity = '0';
+                radio.style.position = 'absolute';
+            }
+
+            // Ajoute l'événement de clic sur toute la zone
+            label.addEventListener('click', function() {
+                if (radio) {
+                    radio.checked = true;
+                    // Met à jour la classe active pour le style
+                    document.querySelectorAll(`input[name="${radio.name}"]`).forEach(r => {
+                        r.closest('.reponses').classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // Mise à jour du compteur de questions
     function updateCounter() {
         const counter = document.getElementById("question-counter");
         if (counter) {
@@ -21,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Mettre à jour la navigation
+    // Gestion de l'affichage des boutons de navigation
     function updateNavigation() {
         const prevButton = document.getElementById("prev-question");
         const nextButton = document.getElementById("next-question");
@@ -38,19 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Afficher une question spécifique
+    // Affichage d'une question spécifique
     function showQuestion(questionNumber) {
         if (questionNumber < 1 || questionNumber > totalQuestions) return;
 
+        // Cache la question actuelle et affiche la nouvelle
         document.querySelector(`#question-${currentQuestion}`).style.display = "none";
         currentQuestion = questionNumber;
         document.querySelector(`#question-${currentQuestion}`).style.display = "block";
         
-        // Restaurer la réponse précédente si elle existe
+        // Restaure la réponse précédente si elle existe
         if (answers[`question-${currentQuestion}`]) {
             const savedAnswer = document.querySelector(`input[name="question-${currentQuestion}"][value="${answers[`question-${currentQuestion}`]}"]`);
             if (savedAnswer) {
                 savedAnswer.checked = true;
+                savedAnswer.closest('.reponses').classList.add('active');
             }
         }
 
@@ -58,11 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
         updateNavigation();
     }
 
-    // Gérer la navigation entre les questions
-    if (document.getElementById("next-question")) {
-        document.getElementById("next-question").addEventListener("click", () => {
+    // Gestion de la navigation
+    const nextButton = document.getElementById("next-question");
+    if (nextButton) {
+        nextButton.addEventListener("click", () => {
             const currentInput = document.querySelector(`input[name="question-${currentQuestion}"]:checked`);
             if (currentInput) {
+                // Sauvegarde la réponse
                 answers[`question-${currentQuestion}`] = currentInput.value;
                 showQuestion(currentQuestion + 1);
             } else {
@@ -71,33 +101,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (document.getElementById("prev-question")) {
-        document.getElementById("prev-question").addEventListener("click", () => {
+    const prevButton = document.getElementById("prev-question");
+    if (prevButton) {
+        prevButton.addEventListener("click", () => {
             showQuestion(currentQuestion - 1);
         });
     }
 
-    // Gérer la soumission du quiz
+    // Gestion de la soumission du quiz
     const quizForm = document.getElementById("orientation-quiz-form");
     if (quizForm) {
         quizForm.addEventListener("submit", function(e) {
             e.preventDefault();
             
-            // Vérifier que toutes les questions ont une réponse
-            let allAnswered = true;
-            for (let i = 1; i <= totalQuestions; i++) {
-                if (!answers[`question-${i}`]) {
-                    allAnswered = false;
-                    break;
-                }
+            // Sauvegarde de la dernière réponse avant la soumission
+            const currentInput = document.querySelector(`input[name="question-${currentQuestion}"]:checked`);
+            if (currentInput) {
+                answers[`question-${currentQuestion}`] = currentInput.value;
             }
 
-            if (!allAnswered) {
-                alert("Veuillez répondre à toutes les questions avant de soumettre.");
+            // Vérifie que toutes les questions ont une réponse
+            const answeredQuestions = Object.keys(answers).length;
+            if (answeredQuestions < totalQuestions) {
+                alert(`Veuillez répondre à toutes les questions (${answeredQuestions}/${totalQuestions} répondues).`);
                 return;
             }
 
-            // Calculer les résultats
+            // Calcul des résultats
             const results = {
                 Science: 0,
                 Social: 0,
@@ -111,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
-            // Trouver le domaine dominant
+            // Détermine le domaine dominant
             const dominantDomain = Object.entries(results).reduce((a, b) => 
                 results[a[0]] > results[b[0]] ? a : b
             )[0];
@@ -120,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Afficher les résultats
+    // Affichage des résultats
     function displayResults(dominantDomain, results) {
         const resultsContainer = document.getElementById("quiz-results");
         if (!resultsContainer) return;
@@ -150,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("quiz-navigation").style.display = "none";
     }
 
-    // Initialiser le quiz
+    // Démarrage du quiz
     initQuiz();
 });
 
