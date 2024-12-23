@@ -108,31 +108,45 @@ function custom_login_authenticate_redirect($user, $username, $password) {
 
 //Contact
 
-add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
-add_action( 'admin_post_process_form', 'send_mail_data' );
-function send_mail_data() {
-
-	$name = sanitize_text_field($_POST['name']);
-	$email = sanitize_email($_POST['email']);
-	$message = sanitize_textarea_field($_POST['message']);
-
-	$adminmail = get_option('admin_email'); 
-	$subject = 'Formulaire de contact'; 
-	$headers = "Reply-to: " . $name . " <" . $email . ">";
-
-	$msg = "Nom: " . $name . "\n";
-	$msg .= "E-mail: " . $email . "\n\n";
-	$msg .= "Message: \n\n" . $message . "\n";
-
-	$sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
-
-	wp_redirect(esc_url(home_url('/')));
+add_action('wp_mail_failed', 'log_mailer_errors', 10, 1);
+function log_mailer_errors($wp_error){
+    error_log(print_r($wp_error, true));
 }
+add_action('admin_post_nopriv_process_form', 'send_mail_data');
+add_action('admin_post_process_form', 'send_mail_data'); 
+
+function send_mail_data() {
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form')) {
+        wp_die('Invalid nonce');
+    }
+    
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_email($_POST['email']);
+    $message = sanitize_textarea_field($_POST['message']);
+    $adminmail = 'pascalthe@gmail.com';
+    $subject = 'Formulaire de contact';
+    
+    $headers = array(
+        'Reply-To: ' . $name . ' <' . $email . '>',
+        'Content-Type: text/html; charset=UTF-8'
+    );
+    
+    $msg = "Nom: " . $name . "<br>";
+    $msg .= "E-mail: " . $email . "<br><br>";
+    $msg .= "Message: <br><br>" . $message;
+    
+    $sendmail = wp_mail($adminmail, $subject, $msg, $headers);
+    
+    wp_redirect(add_query_arg('sent', $sendmail ? '1' : '0', site_url('/contact')));
+    exit();
+}
+ //charger image vsg
+add_filter('upload_mimes', 'enable_svg_upload');
 function enable_svg_upload($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
-add_filter('upload_mimes', 'enable_svg_upload');
+
 
 /* profiles pour consultants */
 
@@ -181,7 +195,7 @@ function afficher_metabox_profils($post) {
  
   $travail = get_post_meta($post->ID, '_travail', true);
   $dispo = get_post_meta($post->ID, '_dispo', true);
-  $email = get_post_meta($post->ID, '_email', true);
+  $conseillermail = get_post_meta($post->ID, '_email', true);
   $numero = get_post_meta($post->ID, '_numero', true);
   
   ?>
@@ -195,7 +209,7 @@ function afficher_metabox_profils($post) {
   </p>
   <p>
       <label for="email">Email :</label>
-      <input type="email" id="email" name="email" value="<?php echo esc_attr($email); ?>" style="width:100%;">
+      <input type="email" id="email" name="email" value="<?php echo esc_attr($conseillermail); ?>" style="width:100%;">
   </p>
   <p>
       <label for="numero">Numéro de Téléphone :</label>
@@ -214,8 +228,8 @@ function sauvegarder_metabox_profils($post_id) {
   if (array_key_exists('dispo', $_POST)) {
       update_post_meta($post_id, '_dispo', sanitize_text_field($_POST['dispo']));
   }
-  if (array_key_exists('email', $_POST)) {
-      update_post_meta($post_id, '_email', sanitize_email($_POST['email']));
+  if (array_key_exists('conseillermail', $_POST)) {
+      update_post_meta($post_id, '_conseillermail', sanitize_email($_POST['conseillermail']));
   }
  
   if (array_key_exists('numero', $_POST)) {
