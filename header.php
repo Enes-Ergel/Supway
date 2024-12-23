@@ -23,7 +23,7 @@
                 <span class="navbar-toggler-icon me-5"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center text-center" id="navbarTogglerDemo01">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-5 mb-2 mb-lg-0">
                     <?php
                         wp_nav_menu(array(
                             'theme_location' => 'header',

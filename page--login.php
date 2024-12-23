@@ -14,13 +14,13 @@ get_header();
 <div class="container-fluid">
     <div class="row">
 
-        <div class="imagenseconnecter col-12 col-lg-6 order-2 order-lg-2">
+        <div class="imagenseconnecter col-12 col-md-6 col-lg-6 order-2 order-lg-2">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-diplome.svg" 
                  alt="Description de l'image">
         </div>
 
         
-        <div class="conteneur-connexion col-12 col-lg-6 order-1 order-lg-1">
+        <div class="conteneur-connexion col-12 col-md-6 col-lg-6 order-1 order-lg-1">
             <h1 class="titreseconnecter mt-5">Se connecter</h1>
             <form action="<?php echo esc_url(site_url('wp-login.php', 'login_post')); ?>" method="post">
 
