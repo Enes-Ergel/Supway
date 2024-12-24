@@ -505,9 +505,12 @@
   
   /* Page 404 */
 
-  .image-404 {
+  .image404 {
     width: 693px;
     height: 435px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 
@@ -676,6 +679,11 @@ border: none;
 }
 
 /* Styles des résultats */
+
+.quiz {
+  background-color: #0097B2;
+}
+
 #quiz-results {
   display: none;
   padding: 2rem;

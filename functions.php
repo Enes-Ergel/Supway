@@ -108,38 +108,39 @@ function custom_login_authenticate_redirect($user, $username, $password) {
 
 //Contact
 
-add_action('wp_mail_failed', 'log_mailer_errors', 10, 1);
-function log_mailer_errors($wp_error){
-    error_log(print_r($wp_error, true));
-}
-add_action('admin_post_nopriv_process_form', 'send_mail_data');
-add_action('admin_post_process_form', 'send_mail_data'); 
+function handle_contact_form_submission() {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['prenom'])) {
+      // Vérifiez le nonce pour la sécurité
+      if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form')) {
+          die('Erreur : vérification de sécurité échouée.');
+      }
 
-function send_mail_data() {
-    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form')) {
-        wp_die('Invalid nonce');
-    }
-    
-    $name = sanitize_text_field($_POST['name']);
-    $email = sanitize_email($_POST['email']);
-    $message = sanitize_textarea_field($_POST['message']);
-    $adminmail = 'pascalthe@gmail.com';
-    $subject = 'Formulaire de contact';
-    
-    $headers = array(
-        'Reply-To: ' . $name . ' <' . $email . '>',
-        'Content-Type: text/html; charset=UTF-8'
-    );
-    
-    $msg = "Nom: " . $name . "<br>";
-    $msg .= "E-mail: " . $email . "<br><br>";
-    $msg .= "Message: <br><br>" . $message;
-    
-    $sendmail = wp_mail($adminmail, $subject, $msg, $headers);
-    
-    wp_redirect(add_query_arg('sent', $sendmail ? '1' : '0', site_url('/contact')));
-    exit();
+      // Récupérer et sécuriser les données
+      $prenom = sanitize_text_field($_POST['prenom']);
+      $nom = sanitize_text_field($_POST['nom']);
+      $email = sanitize_email($_POST['email']);
+      $message = sanitize_textarea_field($_POST['message']);
+
+      // Préparer l'email
+      $to = 'ergelenes24@gmail.com'; // Remplacez par votre adresse email
+      $subject = "Nouvelle demande de contact";
+      $body = "
+          Prénom : $prenom
+          Nom : $nom
+          Email : $email
+
+          Message :
+          $message
+      ";
+      $headers = ['Content-Type: text/html; charset=UTF-8', 'From: Mon Site <noreply@domaine.com>'];
+
+      // Envoyer l'email
+      wp_mail($to, $subject, nl2br($body), $headers);
+  }
 }
+add_action('init', 'handle_contact_form_submission');
+
+
  //charger image vsg
 add_filter('upload_mimes', 'enable_svg_upload');
 function enable_svg_upload($mimes) {

@@ -19,7 +19,7 @@
     </div>
 
       <div class="col-12 col-md-12 col-lg-12 mt-5">
-      <img id="image-redirection" src="<?php echo get_template_directory_uri(); ?>/assets/img/redirection.svg">
+      <img id="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/redirection.svg">
       </div>
     </div>
   </div>

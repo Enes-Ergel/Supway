@@ -1,44 +1,90 @@
-<?php /* Template Name: Contact Page */ get_header(); ?>
+<?php /* Template Name: Contact Page */ 
 
-<?php
-if ( isset($_GET['sent']) ){
-	if ( $_GET['sent'] == '1'){
-		echo "<p> ✔ Formulario enviado correctamente</p><br>";
-	}
-	else {
-		echo "<p> Hubo un error al enviar</p><br>";
-	}
+
+
+// Traitement du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Vérifiez le nonce pour la sécurité
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form')) {
+        die('Erreur : vérification de sécurité échouée.');
+    }
+
+    // Récupérer et sécuriser les données
+    $prenom = sanitize_text_field($_POST['prenom']);
+    $nom = sanitize_text_field($_POST['nom']);
+    $email = sanitize_email($_POST['email']);
+    $message = sanitize_textarea_field($_POST['message']);
+
+    // Vérifier que tous les champs sont remplis
+    if ($prenom && $nom && $email && $message) {
+        // Préparer et envoyer l'email
+        $to = 'votre-email@domaine.com'; // Remplacez par votre adresse email
+        $subject = "Nouvelle demande de contact";
+        $body = "
+            Prénom : $prenom
+            Nom : $nom
+            Email : $email
+
+            Message :
+            $message
+        ";
+        $headers = ['Content-Type: text/html; charset=UTF-8', 'From: Mon Site <noreply@domaine.com>'];
+
+        // Envoyer l'email
+        if (wp_mail($to, $subject, nl2br($body), $headers)) {
+            $notification = "Merci de nous avoir contactés, nous allons traiter votre demande dans les plus brefs délais.";
+        } else {
+            $notification = "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.";
+        }
+    } else {
+        $notification = "Veuillez remplir tous les champs obligatoires.";
+    }
 }
-?>
-	<div class="container-fluid">
-   <h1 class="titrenouscontacter">Nous contacter</h1>
-   <div class="row">
-       <div class="col-12 col-lg-6 order-2 order-lg-1">
-           <img class="image-nouscontacter img-fluid ms-2 pt-0" src="<?php echo get_template_directory_uri();?>/assets/img/image-nouscontacter 1.svg">
-       </div>
-       <div class="col-12 col-lg-6 order-1 order-lg-2">
-           <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
-               <?php wp_nonce_field('contact_form', 'contact_nonce'); ?>
-               <div class="blockdetexte">
-                   <label for="name">Nom et prénom</label>
-                   <input type="text" name="name" id="name" required>
-               </div>
-               <div class="blockdetexte">
-                   <label for="email">E-mail</label>
-                   <input type="email" name="email" id="email" required>
-               </div>
-               <div class="blockdetexte">
-                   <label for="message">Message</label>
-                   <textarea name="message" id="message" cols="30" rows="10" required></textarea>
-               </div>
 
-               <div class="d-flex justify-content-center align-items-center h-100 mb-5">
-                   <input type="hidden" name="action" value="process_form">
-                   <input type="submit" name="submit" value="Envoyer">
-               </div>
-           </form>
-       </div>
-   </div>
+get_header(); ?>
+
+<div class="container my-5">
+    <div class="text-center">
+        <h2>Contact</h2>
+        <p>Vous avez une question ou une demande ? Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+    </div>
+
+    <!-- Notification -->
+    <?php if (!empty($notification)): ?>
+        <div class="alert alert-info text-center">
+            <?php echo esc_html($notification); ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- Formulaire de contact -->
+    <form method="POST" action="" class="formulaire-contact-form mx-auto" style="max-width: 600px;">
+        <?php wp_nonce_field('contact_form', 'contact_nonce'); ?>
+
+        <!-- Prénom et Nom -->
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom *</label>
+            <input type="text" id="nom" name="nom" class="form-control" required>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email *</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <!-- Message -->
+        <div class="mb-3">
+            <label for="message" class="form-label">Message *</label>
+            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+        </div>
+
+        <!-- Bouton Envoyer -->
+        <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+    </form>
 </div>
 
 <?php get_footer(); ?>

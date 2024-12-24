@@ -59,7 +59,7 @@
                             <p class="card-conseiller-subtitle text-muted"><?php echo esc_html($travail); ?></p>
                             <hr>
                             <p class="card-conseiller-text"><strong>Disponibilité: </strong><?php echo esc_html($dispo); ?></p>
-                            <a href="mailto:<?php echo esc_attr($email); ?>" class="btn btn-success">Contacter</a>
+                            <a href="mailto:<?php echo esc_attr($conseillermail); ?>" class="btn btn-success">Contacter</a>
                         </div>
                     </div>
                 </div>
