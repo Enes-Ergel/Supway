@@ -266,10 +266,6 @@
 
     /*footer*/
 
-    .nav-item:hover {
-      color: #000000;
-    }
-
     html, body {
       margin: 0;
       height: 100%;
@@ -506,11 +502,18 @@
   /* Page 404 */
 
   .image404 {
-    width: 693px;
-    height: 435px;
+    width: 900px;
+    height: 640px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .titre-404 {
+    font-family: 'Lato', sans-serif;
+    color: #0097B2;
+    font-size: 24px;
+    margin-top: 30px;
+
   }
 
 
@@ -566,6 +569,14 @@ display: none !important
 color: #0097B2;
 font-size: 34px;
 }
+.titre-rubrique3 {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+.texte-pquiz {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
 
 /* Redirection */
 
@@ -587,7 +598,7 @@ border: none;
   padding: 2rem;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px rgba(41, 36, 36, 0.1);
 }
 
 /* Style du compteur de questions */
@@ -605,7 +616,7 @@ border: none;
 }
 
 .quiz-question h4 {
-  color: #0097b2;
+  color: #000000;
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
@@ -687,7 +698,6 @@ border: none;
 #quiz-results {
   display: none;
   padding: 2rem;
-  background-color: #f8f9fa;
   border-radius: 10px;
   margin-top: 2rem;
 }
@@ -710,4 +720,12 @@ border: none;
 .results-breakdown li {
   margin: 0.5rem 0;
   color: #495057;
+}
+
+.quiz {
+  margin-bottom: 0;
+}
+
+#orientation-quiz-container {
+  margin-top: 0;
 }

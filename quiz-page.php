@@ -9,12 +9,12 @@ if (!is_user_logged_in()) {
 get_header();
 ?>
 
-<section>
+<section class="mb-0">
     <div class="container-fluid quiz">
         <div class="row pt-5 ps-5 align-items-center">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
                 <h2 class="titre-rubrique3 ms-lg-5 mb-4">Venez répondre à notre quiz interactif</h2>
-                <p class="corps-texte ms-lg-5">
+                <p class="texte-pquiz ms-lg-5">
                     Il y aura 10 questions simples, auxquelles vous devrez répondre honnêtement afin que la réponse finale soit la plus précise possible et puisse vous aider.
                 </p>
             </div>
@@ -27,7 +27,8 @@ get_header();
     </div>
 </section>
 
-<div id="orientation-quiz-container">
+<section class="mt-5">
+<div id="orientation-quiz-container" class="container-fluid">
     <form id="orientation-quiz-form">
         <div id="question-counter"></div>
 
@@ -89,5 +90,6 @@ get_header();
 
     <div id="quiz-results" style="display: none;"></div>
 </div>
+</section>
 
 <?php get_footer(); ?>

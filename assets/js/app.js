@@ -42,8 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mise à jour du compteur de questions
     function updateCounter() {
         const counter = document.getElementById("question-counter");
+    
         if (counter) {
             counter.textContent = `${currentQuestion}/${totalQuestions}`;
+    
+            // Si on est à la dernière question, on cache le compteur
+            if (currentQuestion === totalQuestions) {
+                counter.style.display = "none";
+            }
         }
     }
 
@@ -60,8 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
             nextButton.style.display = currentQuestion === totalQuestions ? "none" : "inline-block";
         }
         if (submitButton) {
+            submitButton.addEventListener('click', function() {
+              submitButton.style.display = 'none';
+            });
             submitButton.style.display = currentQuestion === totalQuestions ? "inline-block" : "none";
-        }
+          }
     }
 
     // Affichage d'une question spécifique
@@ -154,12 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function displayResults(dominantDomain, results) {
         const resultsContainer = document.getElementById("quiz-results");
         if (!resultsContainer) return;
-
+        
         const messages = {
-            Science: "Vous excellez dans le domaine scientifique ! Les études en sciences, mathématiques ou recherche pourraient vous convenir.",
-            Social: "Vous êtes fait pour les sciences humaines et sociales ! Considérez des études en psychologie, sociologie ou travail social.",
-            Art: "Vous avez un talent artistique incroyable ! Les écoles d'art, de design ou d'architecture pourraient vous intéresser.",
-            Technique: "Le domaine technique est fait pour vous ! L'ingénierie, l'informatique ou les études techniques seraient appropriées."
+            Science: "Vous excellez dans le domaine scientifique ! Les études en sciences, mathématiques ou recherche pourraient vous convenir. En cas d'égalité avec un autre domaine, n'hésitez pas à l'explorer également !",
+            Social: "Vous êtes fait pour les sciences humaines et sociales ! Considérez des études en psychologie, sociologie ou travail social. En cas d'égalité avec un autre domaine, n'hésitez pas à l'explorer également !",
+            Art: "Vous avez un talent artistique incroyable ! Les écoles d'art, de design ou d'architecture pourraient vous intéresser. En cas d'égalité avec un autre domaine, n'hésitez pas à l'explorer également !",
+            Technique: "Le domaine technique est fait pour vous ! L'ingénierie, l'informatique ou les études techniques seraient appropriées. En cas d'égalité avec un autre domaine, n'hésitez pas à l'explorer également !"
         };
 
         resultsContainer.innerHTML = `
@@ -183,4 +192,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // Démarrage du quiz
     initQuiz();
 });
-
