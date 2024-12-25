@@ -126,23 +126,43 @@ add_action('init', 'create_account');
 
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
 add_action( 'admin_post_process_form', 'send_mail_data' );
+
 function send_mail_data() {
+    
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_email($_POST['email']);
+    $message = sanitize_textarea_field($_POST['message']);
+    
+    
+    if ( ! is_email( $email ) ) {
+        wp_redirect( esc_url(home_url('/')) . '?error=invalid_email' );
+        exit;
+    }
 
-	$name = sanitize_text_field($_POST['name']);
-	$email = sanitize_email($_POST['email']);
-	$message = sanitize_textarea_field($_POST['message']);
+   
+    $adminmail = get_option('admin_email');
+    $subject = 'Formulaire de contact';
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . $name . ' <' . $email . '>',
+        'Reply-To: ' . $email
+    );
 
-	$adminmail = get_option('admin_email'); 
-	$subject = 'Formulaire de contact'; 
-	$headers = "Reply-to: " . $name . " <" . $email . ">";
+    $msg = "Nom: " . $name . "\n";
+    $msg .= "E-mail: " . $email . "\n\n";
+    $msg .= "Message: \n\n" . $message . "\n";
 
-	$msg = "Nom: " . $name . "\n";
-	$msg .= "E-mail: " . $email . "\n\n";
-	$msg .= "Message: \n\n" . $message . "\n";
+    
+    $sendmail = wp_mail( $adminmail, $subject, $msg, $headers );
 
-	$sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
-
-	wp_redirect(esc_url(home_url('/')));
+   
+    if ( $sendmail ) {
+        wp_redirect( esc_url(home_url('/')) . '?success=true' );
+        exit;
+    } else {
+        wp_redirect( esc_url(home_url('/')) . '?error=true' );
+        exit;
+    }
 }
 
 
