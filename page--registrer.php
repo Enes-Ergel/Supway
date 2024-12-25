@@ -12,7 +12,7 @@ get_header();
 <div class="container">
     <div class="row">
 
-        <div class="contenedortextoinscrire col-lg-6 col-12 order-1 order-lg-2">
+        <div class="col-lg-6 col-12 order-1 order-lg-2">
             
 
             <?php if (isset($_GET['success']) && $_GET['success'] == 1 ): ?>
