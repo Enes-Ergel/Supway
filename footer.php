@@ -1,12 +1,10 @@
 <?php wp_footer(); ?>
 
-  <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+  <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
     
  <ul class="nav col-md-4 justify-content-end">
     <li class="nav-item">
-    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>" class="nav-link px-2 text-muted">
-        Nous contacter
-    </a>
+    <a class="nav-link px-2 text-muted" href="mailto:supway@gmail.com">Nous contacter</a>
     </li>
       <li class="nav-item">
         <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="nav-link px-2 text-muted">
@@ -35,3 +33,5 @@
 
 </body>
 </html>
+
+<!-- <a href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>" class="nav-link px-2 text-muted"> Nous contacter</a> 

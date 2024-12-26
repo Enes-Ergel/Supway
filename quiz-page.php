@@ -27,7 +27,7 @@ get_header();
     </div>
 </section>
 
-<section class="mt-5">
+<section class="pt-5"  style="background-color: #bfdd7d">
 <div id="orientation-quiz-container" class="container-fluid">
     <form id="orientation-quiz-form">
         <div id="question-counter"></div>

@@ -9,12 +9,14 @@ function styles_scripts() {
   wp_enqueue_style('bootstrap-icons', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css');
   wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), null, true);
 
+
   wp_enqueue_style(
       'google-fonts',
       'https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Almarai:wght@300;400;700;800&display=swap',
       [],
       null
   );
+  
 
   wp_enqueue_script('app-js', get_template_directory_uri() . '/assets/js/app.js', array('bootstrap-bundle'), file_exists(get_template_directory() . '/assets/js/app.js') ? filemtime(get_template_directory() . '/assets/js/app.js') : '1.0', true);
 }
@@ -140,8 +142,7 @@ function handle_contact_form_submission() {
 }
 add_action('init', 'handle_contact_form_submission');
 
-
- //charger image vsg
+ //charger image svg
 add_filter('upload_mimes', 'enable_svg_upload');
 function enable_svg_upload($mimes) {
   $mimes['svg'] = 'image/svg+xml';
@@ -153,91 +154,111 @@ function enable_svg_upload($mimes) {
 
 add_action('init', 'enregistrer_cpt_profils_conseillers');
 function enregistrer_cpt_profils_conseillers() {
-  $labels = array(
-      'name'               => 'Profils conseillers',
-      'singular_name'      => 'Profil',
-      'add_new'            => 'Ajouter un Nouveau Profil',
-      'add_new_item'       => 'Ajouter un Nouveau Profil',
-      'edit_item'          => 'Modifier le Profil',
-      'new_item'           => 'Nouveau Profil',
-      'view_item'          => 'Voir le Profil',
-      'search_items'       => 'Rechercher des Profils',
-      'not_found'          => 'Aucun profil trouvé',
-      'not_found_in_trash' => 'Aucun profil trouvé dans la corbeille',
-  );
+    $labels = array(
+        'name'               => 'Profils conseillers',
+        'singular_name'      => 'Profil',
+        'add_new'            => 'Ajouter un Nouveau Profil',
+        'add_new_item'       => 'Ajouter un Nouveau Profil',
+        'edit_item'          => 'Modifier le Profil',
+        'new_item'           => 'Nouveau Profil',
+        'view_item'          => 'Voir le Profil',
+        'search_items'       => 'Rechercher des Profils',
+        'not_found'          => 'Aucun profil trouvé',
+        'not_found_in_trash' => 'Aucun profil trouvé dans la corbeille',
+    );
 
-  $args = array(
-      'labels'             => $labels,
-      'public'             => true,
-      'has_archive'        => false,
-      'rewrite'            => array('slug' => 'profil-conseillers'),
-      'supports'           => array('title', 'thumbnail', 'editor'),
-      'menu_icon'          => 'dashicons-id',
-  );
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => false,
+        'rewrite'            => array('slug' => 'profil-conseillers'),
+        'supports'           => array('title', 'thumbnail', 'editor'),
+        'menu_icon'          => 'dashicons-id',
+    );
 
-  register_post_type('profil_conseillers', $args);
+    register_post_type('profil_conseillers', $args);
 }
+
 
 add_action('add_meta_boxes', 'ajouter_metabox_profils');
 add_action('save_post', 'sauvegarder_metabox_profils');
 
 function ajouter_metabox_profils() {
-  add_meta_box(
-      'info_profil',
-      'Informations du Profil',
-      'afficher_metabox_profils',
-      'profil_conseillers',
-      'normal',
-      'default'
-  );
+    add_meta_box(
+        'info_profil',
+        'Informations du Profil',
+        'afficher_metabox_profils',
+        'profil_conseillers',
+        'normal',
+        'default'
+    );
 }
 
 function afficher_metabox_profils($post) {
- 
-  $travail = get_post_meta($post->ID, '_travail', true);
-  $dispo = get_post_meta($post->ID, '_dispo', true);
-  $conseillermail = get_post_meta($post->ID, '_email', true);
-  $numero = get_post_meta($post->ID, '_numero', true);
-  
-  ?>
-  <p>
-      <label for="travail">Poste de Travail :</label>
-      <input type="text" id="travail" name="travail" value="<?php echo esc_attr($travail); ?>" style="width:100%;">
-  </p>
-  <p>
-      <label for="dispo">Disponibilité</label>
-      <input type="text" id="dispo" name="dispo" value="<?php echo esc_attr($dispo); ?>" style="width:100%;">
-  </p>
-  <p>
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" value="<?php echo esc_attr($conseillermail); ?>" style="width:100%;">
-  </p>
-  <p>
-      <label for="numero">Numéro de Téléphone :</label>
-      <input type="text" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
-  </p>
-  
     
-  <?php
+    wp_nonce_field('sauvegarder_metabox_profils', 'metabox_profils_nonce');
+    
+    
+    $travail = get_post_meta($post->ID, '_travail', true);
+    $email = get_post_meta($post->ID, '_email', true);
+    $numero = get_post_meta($post->ID, '_numero', true);
+    $dispo = get_post_meta($post->ID, '_dispo', true);
+    ?>
+    
+    <p>
+        <label for="travail">Poste de Travail :</label>
+        <input type="text" id="travail" name="travail" value="<?php echo esc_attr($travail); ?>" style="width:100%;">
+    </p>
+    <p>
+        <label for="dispo">Disponibilité :</label>
+        <input type="text" id="dispo" name="dispo" value="<?php echo esc_attr($dispo); ?>" style="width:100%;">
+    </p>
+    <p>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" value="<?php echo esc_attr($email); ?>" style="width:100%;">
+    </p>
+    <p>
+        <label for="numero">Numéro de Téléphone :</label>
+        <input type="text" id="numero" name="numero" value="<?php echo esc_attr($numero); ?>" style="width:100%;">
+    </p>
+    <?php
 }
 
 function sauvegarder_metabox_profils($post_id) {
- 
-  if (array_key_exists('travail', $_POST)) {
-      update_post_meta($post_id, '_travail', sanitize_text_field($_POST['travail']));
-  }
-  if (array_key_exists('dispo', $_POST)) {
-      update_post_meta($post_id, '_dispo', sanitize_text_field($_POST['dispo']));
-  }
-  if (array_key_exists('conseillermail', $_POST)) {
-      update_post_meta($post_id, '_conseillermail', sanitize_email($_POST['conseillermail']));
-  }
- 
-  if (array_key_exists('numero', $_POST)) {
-      update_post_meta($post_id, '_numero', sanitize_text_field($_POST['numero']));
-  }
   
+    if (!isset($_POST['metabox_profils_nonce']) || 
+        !wp_verify_nonce($_POST['metabox_profils_nonce'], 'sauvegarder_metabox_profils')) {
+        return;
+    }
+
+    // Verificar si es un autoguardado
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // Verificar permisos
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Guardar los campos
+    if (isset($_POST['travail'])) {
+        update_post_meta($post_id, '_travail', sanitize_text_field($_POST['travail']));
+    }
+
+    if (isset($_POST['dispo'])) {
+        update_post_meta($post_id, '_dispo', sanitize_text_field($_POST['dispo']));
+    }
+
+    if (isset($_POST['email'])) {
+        update_post_meta($post_id, '_email', sanitize_email($_POST['email']));
+    }
+
+    if (isset($_POST['numero'])) {
+        update_post_meta($post_id, '_numero', sanitize_text_field($_POST['numero']));
+    }
 }
+     
 add_action('init', 'register_quiz_question_post_type');
 function register_quiz_question_post_type() {
   $labels = array(
