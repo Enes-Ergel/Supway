@@ -95,6 +95,8 @@ function custom_login_failed_redirect($username) {
     exit;
 }
 
+add_action('user_register', 'auto_login_after_registration');
+
 // Redirige en cas de champs vides
 add_filter('authenticate', 'custom_login_authenticate_redirect', 30, 3);
 function custom_login_authenticate_redirect($user, $username, $password) {

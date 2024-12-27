@@ -20,7 +20,7 @@ get_header();
         </div>
 
         
-        <div class="conteneur-connexion col-12 col-md-6 col-lg-6 order-1 order-lg-1">
+        <div class="col-12 col-lg-6 d-flex flex-column align-items-center justify-content-center text-container">
             <h1 class="titreseconnecter mt-5">Se connecter</h1>
             <form action="<?php echo esc_url(site_url('wp-login.php', 'login_post')); ?>" method="post">
 

@@ -15,7 +15,7 @@
        
         <div class="ms-lg-4 d-flex">
           <a class="btn-index me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S'inscrire</a>
-          <a class="btn-index" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
+          <a class="btn-index1" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
         </div>
       </div>
 
@@ -47,19 +47,18 @@
 
 <section class="section-index">
   <div class="container-fluid">
-    <div class="row  align-items-center">
+    <div class="row ">
      
-      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-start justify-content-center text-container">
         <h1 class="titre-homepage">Partagez vos expériences,...</h1>
         <p class="corps-texte">
           Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.
         </p>
        
         <a 
-          class="btn-rejoignez" 
-          href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>">
-          Rejoignez-nous
+          class="btn-rejoignez text-start" href="mailto:supway@gmail.com">Nous contacter
         </a>
+       
       </div>
 
       
@@ -99,47 +98,45 @@
 <section>
     <div class="container-nosobjectifs">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center align-items-center">
                 <div class="col-12">
                     <h2 class="nosobjectifs mt-5 mb-5">Nos objectifs</h2>
                 </div>
             </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-12 col-lg-3">
-                    <div class="card align-items-center mb-5">
-                        <p class="card-text mt-4 ms-3 me-3">
-                            Orienter les jeunes avec un quiz personnalisé qui recommande des filières et formations adaptées à leur profil.
-                        </p>
-                        <div>
-                            <img id="picto1" class="mt-3" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/graph.svg" alt="Graphique">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-1 text-center">
-                    <img class="arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/arrow.svg" alt="Flèche">
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card align-items-center mb-5">
-                        <p class="card-text mt-4 ms-3 me-3">
-                            Offrir une aide individuelle à chaque étudiant(e) avec des conseillers prêts à les guider au mieux.
-                        </p>
-                        <img id="picto2" class="mt-4" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/question.svg" alt="Question">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-1 text-center">
-                    <img class="arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/arrow.svg" alt="Flèche">
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card align-items-center mb-5">
-                        <p class="card-text mt-3 ms-3 me-3">
-                        Créer une communauté d’étudiants qui partagent leurs expériences pour inspirer autrui.
-                        </p>
-                        <img id="picto3" class="mt-1" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/community.svg" alt="Communauté">
-                    </div>
-                </div>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-4">
+            <div class="card align-items-center" style="width: 23rem; height: 35rem">
+            <img 
+            class="p-3" 
+            src="<?php echo get_template_directory_uri(); ?>/assets/img/objectif1.svg" 
+            >
+            <div class="card-body">
+              <p class="card-text text-center mt-lg-5">Orienter les jeunes avec un quiz personnalisé qui recommande des filières et formations adaptées à leur profil.</p>
             </div>
         </div>
-    </div>
+      </div>  
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card align-items-center" style="width: 23rem; height: 35rem">
+            <img
+            class="p-2" 
+            src="<?php echo get_template_directory_uri(); ?>/assets/img/objectif2.svg" 
+            >
+            <div class="card-body">
+              <p class="card-text text-center mt-lg-5">Offrir une aide individuelle à chaque étudiant(e) avec des conseillers prêts à les guider au mieux.</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card align-items-center" style="width: 23rem; height: 35rem">
+            <img 
+            class="p-2 mt-5 pt-5" 
+            src="<?php echo get_template_directory_uri(); ?>/assets/img/objectif3.svg" 
+            >
+            <div class="card-body">
+              <p class="card-text text-center mt-lg-5 pt-lg-4">Créer une communauté d’étudiants qui partagent leurs expériences pour ainsi, à leur tour, viennent en aide aux autres !</p>
+            </div>
+        </div>
+      </div>  
 </section>
 
 <section class="section-index">
@@ -156,13 +153,14 @@
       </div>
       <div class="col-12 col-lg-6  d-flex flex-column align-items-start text-container">
                 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/étudiant-avec-conseiller.svg">
+          </div>
+        </div>
       </div>
-
-
     </div>
-  </div>
-</section>
-
+    </section>
     
    <?php get_footer(); ?>
+
+   
+
     

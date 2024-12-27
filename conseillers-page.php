@@ -20,7 +20,6 @@
         Avec Supway et ses conseillers, faites de votre orientation une réussite. Prenez rendez-vous avec un conseiller dès aujourd'hui et faites le premier pas vers un parcours qui vous ressemble.
         </p>
       </div>
-
       
       <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
         <img class="img-fluid container-image2" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-pageconseillers.svg">
@@ -56,7 +55,7 @@
                           <h5 class="card-conseiller-title"><?php the_title(); ?></h5>
                           <p class="card-conseiller-subtitle text-muted"><?php echo esc_html($travail); ?></p>
                           <hr>
-                          <p class="card-conseiller-text"><strong>Disponibilité: </strong><?php echo esc_html($dispo); ?></p>
+                          <p class="card-conseiller-text"><strong>Disponibilité: &nbsp; </strong><?php echo esc_html($dispo); ?></p>
                           <?php if (!empty($conseillermail)) : ?>
                               <a href="mailto:<?php echo esc_attr($conseillermail); ?>" 
                                  class="btn btn-success"

@@ -43,7 +43,7 @@ get_header();
 
                 <div class="d-flex justify-content-center align-items-center h-100">
                 <input type="hidden" name="create_account_nonce" value="<?php echo wp_create_nonce('create_account_action'); ?>">
-                <button class="button-sinscrire"  type="submit" id="buttoninscrit" name="submit">S'inscrire</button>
+                <button class="button-sinscrire"  type="submit" name="submit">S'inscrire</button>
                 </div>
             </form>
             </div>
