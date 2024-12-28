@@ -105,36 +105,32 @@
                 </div>
             </div>
             <div class="row justify-content-center align-items-center">
-                <div class="col-12 col-lg-3">
-                    <div class="card align-items-center mb-5">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card-objectifs align-items-center mb-5">
                         <p class="card-text mt-4 ms-3 me-3">
                             Orienter les jeunes avec un quiz personnalisé qui recommande des filières et formations adaptées à leur profil.
                         </p>
                         <div>
-                            <img id="picto1" class="mt-3" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/graph.svg" alt="Graphique">
+                            <img id="picto1"  src="<?php echo get_template_directory_uri(); ?>/graph.svg" alt="Graphique">
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-1 text-center">
-                    <img class="arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/arrow.svg" alt="Flèche">
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card align-items-center mb-5">
+               
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card-objectifs align-items-center mb-5">
                         <p class="card-text mt-4 ms-3 me-3">
                             Offrir une aide individuelle à chaque étudiant(e) avec des conseillers prêts à les guider au mieux.
                         </p>
-                        <img id="picto2" class="mt-4" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/question.svg" alt="Question">
+                        <img id="picto1" src="<?php echo get_template_directory_uri(); ?>/question.svg" alt="Question">
                     </div>
                 </div>
-                <div class="col-12 col-lg-1 text-center">
-                    <img class="arrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/arrow.svg" alt="Flèche">
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="card align-items-center mb-5">
+             
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card-objectifs align-items-center mb-5">
                         <p class="card-text mt-4 ms-3 me-3">
                             Créer une communauté d’étudiants qui partagent leurs expériences pour inspirer autrui.
                         </p>
-                        <img id="picto3" class="mt-1" src="<?php echo get_template_directory_uri(); ?>/assets/img/Pictogrammes/community.svg" alt="Communauté">
+                        <img id="picto1" src="<?php echo get_template_directory_uri(); ?>/community.svg" alt="Communauté">
                     </div>
                 </div>
             </div>
