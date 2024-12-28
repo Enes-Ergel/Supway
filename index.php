@@ -45,29 +45,26 @@
      </div>
   </section>
 
-<section class="section-index">
+  <section> holi
   <div class="container-fluid">
     <div class="row  align-items-center">
-     
+    
       <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
-        <h1 class="titre-homepage">Partagez vos expériences,...</h1>
-        <p class="corps-texte">
-          Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.
+        <h1 class="titre-homepage  ">Partagez vos expériences,...</h1>
+        <p class="corps-texte ">
+        Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.
         </p>
+
        
-        <a 
-          class="btn-rejoignez" 
-          href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>">
-          Rejoignez-nous
-        </a>
+        <div class="d-flex">
+        <a class="btn-rejoignez" href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>"> Nous contacter</a>
+         
+        </div>
       </div>
 
-      
+     
       <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
-        <img 
-          class="img-fluid"  
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-smartphone 1.svg" 
-          alt="Student Image">
+        <img class="img-fluid"  src="<?php echo get_template_directory_uri(); ?>/student-with-smartphone 1.svg" alt="Student Image">
       </div>
     </div>
   </div>
