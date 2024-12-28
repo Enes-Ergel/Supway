@@ -25,19 +25,20 @@ get_header();
                 <label for="uname">Nom d'utilisateur</label>
                 <input type="text" id="uname" name="uname" required />
 
-                
+                <div class="blocktexte">
                 <label for="uemail">Adresse mail </label>
                 <input type="email" id="uemail" name="uemail" required />
-
+                </div>
                 
+                <div class="blocktexte">
                 <label for="upass">Définir un mot de passe </label>
                 <input type="password" id="upass" name="upass" required />
-
+                </div>
                 
+                <div class="blocktexte">
                 <label for="repass">Confirmer un mot de passe </label>
                 <input type="password" id="repass" name="repass" required />
-				<br>
-				<br>
+                </div>
 
                 <p id="textepasinscrit">Déjà membre ?  <a class="ms-1" href=" <?php echo esc_url(get_permalink(get_page_by_path('?page_id=58')));  ?>"> Se connecter</a></p>
 
@@ -51,7 +52,7 @@ get_header();
             <div class="imagenseconnecter col-lg-6 col-12 order-1 order-lg-1">
             <div class="d-flex justify-content-center align-items-center h-100 mb-5">
             <img  src="<?php echo get_template_directory_uri(); ?>/assets/img/Inscription-student-page.svg" 
-                 class="img-fluid" alt="Description de l'image">
+                 class="img-fluid" alt="étudiant diplomé">
             </div>
         </div>
     </div>

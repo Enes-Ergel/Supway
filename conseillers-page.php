@@ -22,7 +22,7 @@
       </div>
       
       <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
-        <img class="img-fluid container-image2" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-pageconseillers.svg">
+        <img class="img-fluid container-image2" src="<?php echo get_template_directory_uri(); ?>/assets/img/image-pageconseillers.svg" alt="étudiant et conseiller">
       </div>
     </div>
   </div>

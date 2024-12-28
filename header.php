@@ -3,6 +3,8 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Supway vous aide à trouver votre voie dans l'enseignement supérieur. Quiz d'orientation personnalisé et conseillers dédiés pour vous guider dans vos choix d'études post-secondaires.">
+    <meta name="robots" content="index, follow">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
@@ -11,14 +13,14 @@
 
 <body 
 <?php body_class(); ?>>
-<header class="mt-3">
+<header class="pt-3 pb-3">
  
 <div class="container-fluid p-0">
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <div class="col-2"></div>
                 <div class="col-2">
-            <img class="logo-nav ms-lg-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg"> 
+            <img class="logo-nav ms-lg-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg" alt="logo supway"> 
         </div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">

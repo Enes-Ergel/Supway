@@ -49,100 +49,63 @@ function montheme_menu_link_class($attrs) {
 add_filter('nav_menu_css_class', 'montheme_menu_class');
 add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
 
-function create_account(){
-  
-  $user   = ( isset($_POST['uname']) && !empty($_POST['uname']) ) ? sanitize_user( $_POST['uname'] ) : '';
-  $email  = ( isset($_POST['uemail']) && !empty($_POST['uemail']) ) ? sanitize_email( $_POST['uemail'] ) : '';
-  $pass   = ( isset($_POST['upass']) && !empty($_POST['upass']) ) ? sanitize_text_field( $_POST['upass'] ) : '';
-  $repass = ( isset($_POST['repass']) && !empty($_POST['repass']) ) ? sanitize_text_field( $_POST['repass'] ) : '';
+//cree compte
 
-if ( $pass !== $repass ) {
-    wp_die('Les mots de passe ne correspondent pas.');
-}
-
-  if ( username_exists( $user ) || email_exists( $email ) ) {
-     wp_die('Le nom de utilisateur ou adresse électronique est déjà enregistré');
-}
-
-	if ( !username_exists( $user )  && !email_exists( $email ) ) {
-		$user_login = wp_slash( $user );
-		$user_email = wp_slash( $email );
-		$user_pass = $pass;
-
-		
-     $userdata = compact('user_login', 'user_email', 'user_pass');
-
-		$user_id = wp_insert_user($userdata);
-
-		if( !is_wp_error($user_id) ) {
-
-      $user = new WP_User( $user_id );
-			$user->set_role( 'contributor' ); 
-		
-			wp_redirect(esc_url(home_url('/')));
-			exit;
-		} else {
-			//$user_id is a WP_Error object. Manage the error
-		}
-	}
-}
 add_action('init', 'create_account');
+function create_account() {
+  $user   = (isset($_POST['uname']) && !empty($_POST['uname'])) ? sanitize_user($_POST['uname']) : '';
+  $email  = (isset($_POST['uemail']) && !empty($_POST['uemail'])) ? sanitize_email($_POST['uemail']) : '';
+  $pass   = (isset($_POST['upass']) && !empty($_POST['upass'])) ? sanitize_text_field($_POST['upass']) : '';
+  $repass = (isset($_POST['repass']) && !empty($_POST['repass'])) ? sanitize_text_field($_POST['repass']) : '';
 
-add_action('wp_login_failed', 'custom_login_failed_redirect');
-function custom_login_failed_redirect($username) {
-    $redirect_url = home_url('/se-connecter/?login=failed'); 
-    wp_redirect($redirect_url);
-    exit;
-}
+  if ($pass !== $repass) {
+      wp_die('Les mots de passe ne correspondent pas.');
+  }
 
-add_action('user_register', 'auto_login_after_registration');
+  if (username_exists($user) || email_exists($email)) {
+      wp_die('Le nom de utilisateur ou adresse électronique est déjà enregistré');
+  }
 
-// Redirige en cas de champs vides
-add_filter('authenticate', 'custom_login_authenticate_redirect', 30, 3);
-function custom_login_authenticate_redirect($user, $username, $password) {
-    if (is_wp_error($user)) {
-        $redirect_url = home_url('/se-connecter/?login=empty'); 
-        if (isset($user->errors['empty_username']) || isset($user->errors['empty_password'])) {
-            wp_redirect($redirect_url);
-            exit;
-        }
-    }
-    return $user;
-}
+  if (!username_exists($user) && !email_exists($email)) {
+      $user_login = wp_slash($user);
+      $user_email = wp_slash($email);
+      $user_pass = $pass;
+      
+      $userdata = compact('user_login', 'user_email', 'user_pass');
+      $user_id = wp_insert_user($userdata);
 
-//Contact
+      if (!is_wp_error($user_id)) {
+          $user = new WP_User($user_id);
+          $user->set_role('suscriptor');
 
-function handle_contact_form_submission() {
-  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['prenom'])) {
-      // Vérifiez le nonce pour la sécurité
-      if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form')) {
-          die('Erreur : vérification de sécurité échouée.');
+        
+          wp_set_current_user($user_id);
+          wp_set_auth_cookie($user_id);
+          do_action('wp_login', $user->user_login, $user);
+
+          wp_redirect(esc_url(home_url('/')));
+          exit;
       }
-
-      // Récupérer et sécuriser les données
-      $prenom = sanitize_text_field($_POST['prenom']);
-      $nom = sanitize_text_field($_POST['nom']);
-      $email = sanitize_email($_POST['email']);
-      $message = sanitize_textarea_field($_POST['message']);
-
-      // Préparer l'email
-      $to = 'ergelenes24@gmail.com'; // Remplacez par votre adresse email
-      $subject = "Nouvelle demande de contact";
-      $body = "
-          Prénom : $prenom
-          Nom : $nom
-          Email : $email
-
-          Message :
-          $message
-      ";
-      $headers = ['Content-Type: text/html; charset=UTF-8', 'From: Mon Site <noreply@domaine.com>'];
-
-      // Envoyer l'email
-      wp_mail($to, $subject, nl2br($body), $headers);
   }
 }
-add_action('init', 'handle_contact_form_submission');
+
+add_action('wp_login_failed', 'custom_login_failed_redirect');
+
+    function custom_login_failed_redirect($username) {
+        wp_redirect(esc_url(get_permalink(get_page_by_path('se-connecter'))) . '?error=login_failed');
+        exit;
+}
+
+add_filter('authenticate', 'custom_login_authenticate_redirect', 30, 3);
+function custom_login_authenticate_redirect($user, $username, $password) {
+  if (is_wp_error($user)) {
+    if (isset($user->errors['empty_username']) || isset($user->errors['empty_password'])) {
+        wp_redirect(esc_url(get_permalink(get_page_by_path('se-connecter'))) . '?error=empty_login');
+        exit;
+      }
+  }
+  return $user;
+}
 
  //charger image svg
 add_filter('upload_mimes', 'enable_svg_upload');
@@ -295,6 +258,3 @@ function register_quiz_question_post_type() {
 add_filter('show_admin_bar', function($show) {
   return current_user_can('administrator') ? $show : false;
 });
-
-
-
