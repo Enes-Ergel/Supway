@@ -16,17 +16,15 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <!-- Logo -->
+            
             <a class="navbar-brand ps-lg-4" href="<?php echo esc_url(home_url('/')); ?>">
                 <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg" alt="logo supway">
             </a>
             
-            <!-- Toggler Button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <?php
                 wp_nav_menu(array(
@@ -36,7 +34,6 @@
                 ));
                 ?>
                 
-                <!-- Buttons -->
                 <?php if (is_user_logged_in()): ?>
                     <a class="btn btn-danger" href="<?php echo wp_logout_url(home_url('/')); ?>">Déconnexion</a>
                 <?php else: ?>
