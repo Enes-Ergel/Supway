@@ -52,7 +52,7 @@
     
       <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
         <h1 class="titre-homepage  ">Partagez vos expériences,...</h1>
-        <p class="corps-texte ">
+        <p class="corps-texte">
         Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.
         </p>
 

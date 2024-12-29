@@ -8,7 +8,7 @@
         <div class="mb-5 col-lg-12 col-12">
 <h1 class="titrementions">Mentions légales</h1>
 
-<h3 class="soustitrementions"><b>Identité et coordonnées de l’éditeur responsable de ce site internet :</b></h3>
+<h2 class="soustitrementions"><b>Identité et coordonnées de l’éditeur responsable de ce site internet :</b></h2>
 
 <ul>
  <li class="mentions-item" >Nom de la société : Supway</li>

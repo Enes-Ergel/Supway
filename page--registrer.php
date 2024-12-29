@@ -19,7 +19,7 @@ get_header();
                 <p style="color: green;">Inscription réussie ! Vous pouvez maintenant vous connecter.</p>
             <?php endif; ?>
             <div class="form-sinscrire">
-                <h1 class="titreseconnecter">S'inscrire</h1>
+                <h1 class="titreseconnecter mt-5 mb-5">S'inscrire</h1>
             <form method="post" name="myForm">
 
                 <label for="uname">Nom d'utilisateur</label>
@@ -44,7 +44,7 @@ get_header();
 
                 <div class="d-flex justify-content-center align-items-center h-100">
                 <input type="hidden" name="create_account_nonce" value="<?php echo wp_create_nonce('create_account_action'); ?>">
-                <button class="button-sinscrire"  type="submit" name="submit">S'inscrire</button>
+                <button class="button-sinscrire mb-5"  type="submit" name="submit">S'inscrire</button>
                 </div>
             </form>
             </div>
