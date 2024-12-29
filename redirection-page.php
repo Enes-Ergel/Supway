@@ -37,7 +37,7 @@
         </div>
 
         <div class="image-container2">
-    <img id="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/redirection.svg">
+    <img id="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/redirection.svg" alt="image-redirection">
 </div>
 </div>  
 
