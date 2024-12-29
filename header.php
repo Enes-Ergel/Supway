@@ -13,43 +13,41 @@
 
 <body 
 <?php body_class(); ?>>
-<header class="pt-3 pb-3">
- 
-<div class="container-fluid p-0">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
-                <div class="col-2"></div>
-                <div class="col-2">
-            <img class="logo-nav ms-lg-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg" alt="logo supway"> 
-        </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <div class="col-7"></div>
-        <div class="col-2">
-        <?php
-            wp_nav_menu(array(
-                'theme_location' => 'header',
-                'container' => false,
-                'menu_class' => 'navbar-nav me-auto  mb-2 me-5 mb-lg-0'
-            ));
-            ?>
-            </div>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand ps-lg-4" href="<?php echo esc_url(home_url('/')); ?>">
+                <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg" alt="logo supway">
+            </a>
             
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'header',
+                    'container' => false,
+                    'menu_class' => 'navbar-nav me-lg-4'
+                ));
+                ?>
+                
+                <!-- Buttons -->
                 <?php if (is_user_logged_in()): ?>
-                        
-                    <a class="btn btn-danger me-lg-5" href="<?php echo wp_logout_url(home_url('/')); ?>">Déconnexion</a>
+                    <a class="btn btn-danger" href="<?php echo wp_logout_url(home_url('/')); ?>">Déconnexion</a>
                 <?php else: ?>
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="btn btn-inscrire">S'inscrire</a>
-
-                    <a class="btn btn-connecter ms-lg-3" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
+                    <div class="nav-buttons">
+                        <a href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>" class="btn btn-inscrire">S'inscrire</a>
+                        <a class="btn btn-connecter ms-lg-3" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
+                    </div>
                 <?php endif; ?>
-        
-    </div>
-    </div>
-</nav>     
-</div>
+            </div>
+        </div>
+    </nav>
 </header>
-    <?php wp_body_open(); ?>    
+<?php wp_body_open(); ?>
+ 
