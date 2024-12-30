@@ -25,7 +25,8 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-2">
                 <p class="corps-texte2 d-flex justify-content-center align-items-center h-100 pt-5 me-lg-5">
-                    Grâce à notre quiz interactif et à une communauté de conseillers passionnés, nous t’aidons à découvrir le chemin qui te correspond. Ces conseillers sont là pour t’accompagner et te permettre de t’insérer au mieux dans la section qui te correspond.
+                    Avec notre quiz interactif et une communauté de conseillers passionnés, nous t'accompagnons pour trouver la voie qui te correspond. 
+                    Ces experts sont là pour te guider et t'aider à intégrer la filière qui te convient le mieux.
                 </p>
             </div>
             <div class="col-12 col-md-6 order-md-1 img-container2">
