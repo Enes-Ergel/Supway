@@ -58,10 +58,10 @@
 <section class="section-index">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex justify-content-center image-container order-lg-1">
+            <div class="col-12 col-lg-6 d-flex justify-content-center image-container order-2 order-lg-1">
                 <img class="img-fluid pt-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/conseiller-avec-pc.svg" alt="conseiller avec un pc">
             </div>
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container order-lg-2">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container order-1 order-lg-2">
                 <h2 class="titre-homepage">...inspirez des futurs étudiants</h2>
                 <p class="corps-texte">
                     Avec votre expertise, guidez la nouvelle génération dans leurs choix d'études et démarches. Faites la différence dès aujourd'hui en devenant un acteur clé de leur réussite !
