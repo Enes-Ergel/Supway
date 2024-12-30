@@ -11,17 +11,23 @@
     <?php wp_head(); ?>
 </head>
 
-<body 
-<?php body_class(); ?>>
+<body <?php body_class(); ?>>
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            
             <a class="navbar-brand ps-lg-4" href="<?php echo esc_url(home_url('/')); ?>">
                 <img class="logo-nav" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/Supway-logo.svg" alt="logo supway">
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
             
@@ -46,4 +52,5 @@
         </div>
     </nav>
 </header>
+
 <?php wp_body_open(); ?>

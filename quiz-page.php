@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* Template Name: Quiz Page */
 
 if (!is_user_logged_in()) {
@@ -11,7 +11,7 @@ get_header();
 
 <section class="mb-0">
     <div class="container-fluid quiz">
-        <div class="row  align-items-center">
+        <div class="row align-items-center">
             <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
                 <h2 class="titre-rubrique3 ms-lg-5 mb-4">Venez répondre à notre quiz interactif</h2>
                 <p class="texte-pquiz ms-lg-5">
@@ -27,7 +27,7 @@ get_header();
     </div>
 </section>
 
-<section class="pt-5"  style="background-color: #bfdd7d">
+<section class="pt-5" style="background-color: #bfdd7d">
 <div id="orientation-quiz-container" class="container-fluid">
     <form id="orientation-quiz-form">
         <div id="question-counter"></div>
