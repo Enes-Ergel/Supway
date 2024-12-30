@@ -3,17 +3,17 @@
 <section>
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1500">
                 <h1 class="titre-homepage">Supway, la voie du supérieur</h1>
                 <p class="corps-texte">
                     Tu te demandes quoi faire après la rhéto ? Ou tu cherches à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway !
                 </p>
-                <div class="ms-lg-4 d-flex">
+                <div class="ms-lg-4 d-flex" data-aos="fade-right" data-aos-duration="1500">
                     <a class="btn-index me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S'inscrire</a>
                     <a class="btn-index1" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
+            <div class="col-12 col-lg-6 d-flex justify-content-center image-container" data-aos="fade-left" data-aos-duration="1500">
                 <img id="image" class="img-fluid mt-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-page-intro.svg" alt="Student Image">
             </div>
         </div>
@@ -23,13 +23,13 @@
 <section>
     <div class="container-fluid rubrique2" style="background-color: #0097b2;">
         <div class="row">
-            <div class="col-12 col-md-6 order-md-2">
+            <div class="col-12 col-md-6 order-md-2" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                 <p class="corps-texte2 d-flex justify-content-center align-items-center h-100 pt-5 me-lg-5">
                     Avec notre quiz interactif et une communauté de conseillers passionnés, nous t'accompagnons pour trouver la voie qui te correspond. 
                     Ces experts sont là pour te guider et t'aider à intégrer la filière qui te convient le mieux.
                 </p>
             </div>
-            <div class="col-12 col-md-6 order-md-1 img-container2">
+            <div class="col-12 col-md-6 order-md-1 img-container2" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-book.svg" alt="student with book">
             </div>
         </div>
@@ -39,16 +39,16 @@
 <section class="section-index"> 
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                 <h1 class="titre-homepage">Partagez vos expériences,...</h1>
                 <p class="corps-texte">
                     Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.
                 </p>
-                <div class="d-flex">
+                <div class="d-flex" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                     <a class="btn-rejoignez" href="mailto:supway@gmail.com">Rejoignez-nous !</a>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
+            <div class="col-12 col-lg-6 d-flex justify-content-center image-container" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                 <img id="image" class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-smartphone 1.svg" alt="Student with smartphone">
             </div>
         </div>
@@ -58,10 +58,10 @@
 <section class="section-index">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex justify-content-center image-container order-2 order-lg-1">
+            <div class="col-12 col-lg-6 d-flex justify-content-center image-container order-2 order-lg-1" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                 <img class="img-fluid pt-5" src="<?php echo get_template_directory_uri(); ?>/assets/img/conseiller-avec-pc.svg" alt="conseiller avec un pc">
             </div>
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container order-1 order-lg-2">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                 <h2 class="titre-homepage">...inspirez des futurs étudiants</h2>
                 <p class="corps-texte">
                     Avec votre expertise, guidez la nouvelle génération dans leurs choix d'études et démarches. Faites la différence dès aujourd'hui en devenant un acteur clé de leur réussite !
@@ -114,12 +114,12 @@
 <section class="section-index">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                 <p class="corps-texte pt-5">
                     Inscris-toi sur Supway pour accéder à un quiz d’orientation personnalisé et des conseillers prêts à t’accompagner. Fais le premier pas vers ta réussite !
                 </p>
             </div>
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                 <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/img/étudiant-avec-conseiller.svg" alt="étudiant avec conseiller">
             </div>
         </div>

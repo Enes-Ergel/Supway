@@ -12,13 +12,13 @@ get_header();
 <section class="mb-0">
     <div class="container-fluid quiz">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1500">
                 <h2 class="titre-rubrique3 ms-lg-5 mb-4">Venez répondre à notre quiz interactif</h2>
                 <p class="texte-pquiz ms-lg-5">
                     Il y aura 10 questions simples, auxquelles vous devrez répondre honnêtement afin que la réponse finale soit la plus précise possible et puisse vous aider.
                 </p>
             </div>
-            <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
+            <div class="col-12 col-lg-6 d-flex justify-content-center image-container" data-aos="fade-left" data-aos-duration="1500">
                 <img class="img-fluid" 
                      src="<?php echo get_template_directory_uri(); ?>/assets/img/image-pagequizz.svg" 
                      alt="Student Image">

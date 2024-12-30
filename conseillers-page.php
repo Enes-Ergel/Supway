@@ -12,15 +12,15 @@ get_header(); ?>
     <div class="container-fluid">
         <div class="rubrique2">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2 order-lg-2 d-flex flex-column justify-content-center align-items-start">
+                <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2 order-lg-2 d-flex flex-column justify-content-center align-items-start" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                     <h2 class="titre-conseillers ms-lg-5 mb-4">Prenez la main sur votre avenir</h2>
                     <p class="ms-lg-5">
                         Avec Supway et ses conseillers, faites de votre orientation une réussite. Prenez rendez-vous avec un conseiller dès aujourd'hui et faites le premier pas vers un parcours qui vous ressemble.
                     </p>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
-                    <img 
-                        class="img-fluid container-image2" 
+                <div class="col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1" data-aos="fade-right" data-aos-duration="1500">
+                    <img  
+                        class="img-fluid"
                         src="<?php echo get_template_directory_uri(); ?>/assets/img/image-pageconseillers.svg" 
                         alt="étudiant et conseiller"
                     >
