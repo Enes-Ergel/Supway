@@ -6,24 +6,25 @@
   <div class="container-fluid">
     <div class="row  align-items-center">
     
-      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
-        <h1 class="titre-homepage  ">Supway, la voie du supérieur</h1>
-        <p class="corps-texte ">
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1500">
+        <h1 class="titre-homepage">Supway, la voie du supérieur</h1>
+        <p class="corps-texte">
           Tu te demandes quoi faire après la rhéto ? Ou tu cherches à réorienter ta carrière mais tu ne sais pas par où commencer ? Bienvenue sur Supway !
         </p>
 
        
-        <div class=" ms-lg-4 d-flex">
+        <div class="ms-lg-4 d-flex" data-aos="fade-right" data-aos-duration="1500">
           <a class="btn-index me-2" href="<?php echo esc_url(get_permalink(get_page_by_path('/sinscrire'))); ?>">S'inscrire</a>
-          <a class="btn-index " href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
+          <a class="btn-index1" href="<?php echo esc_url(get_permalink(get_page_by_path('/se-connecter'))); ?>">Se connecter</a>
         </div>
       </div>
 
      
-      <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
+      <div class="col-12 col-lg-6 d-flex justify-content-center image-container" data-aos="fade-left" data-aos-duration="1500">
         <img 
-          class="img-fluid" 
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/student-page-intro.svg" 
+          id="image"
+          class="img-fluid mt-5" 
+          src="<?php echo get_template_directory_uri(); ?>/student-page-intro.svg" 
           alt="Student Image">
       </div>
     </div>
@@ -31,40 +32,40 @@
 </section>
 
 <section>
-<div class="container-fluid rubrique2" style="background-color: #0097b2";>
+<div class="container-fluid rubrique2" style="background-color: #0097b2">
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2 order-lg-2">
-          <p class="corps-texte2 d-flex justify-content-center align-items-center h-100">
-          Grâce à notre quiz interactif et à une communauté de conseillers passionnés, nous t’aidons à découvrir le chemin qui te correspond. 
-          Ces conseillers sont là pour t’accompagner et te permettre de t’insérer au mieux dans la section qui te correspond.
+        <div class="col-12 col-md-6 col-lg-6 order-1 order-md-2 order-lg-2" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
+          <p class="corps-texte2 d-flex justify-content-center align-items-center h-100 pt-5 me-lg-5">
+          Grâce à notre quiz interactif et à une communauté de conseillers passionnés, nous t'aidons à découvrir le chemin qui te correspond. 
+          Ces conseillers sont là pour t'accompagner et te permettre de t'insérer au mieux dans la section qui te correspond.
           </p>
         </div>
-        <div class="image-container col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1">
-          <img class="img-fluid1" src="<?php echo get_template_directory_uri(); ?>/assets/img/student-with-book.svg">
+        <div class="img-container2 col-12 col-md-6 col-lg-6 order-2 order-md-1 order-lg-1"data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
+          <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/student-with-book.svg" alt="student with book">
       </div>
      </div>
-  </section>
+  </div>
+</section>
 
-  <section> holi
+  <section class="section-index"> 
   <div class="container-fluid">
     <div class="row  align-items-center">
     
-      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
         <h1 class="titre-homepage  ">Partagez vos expériences,...</h1>
-        <p class="corps-texte ">
+        <p class="corps-texte">
         Vous êtes étudiant, ancien élève ou membre du personnel éducatif ? Rejoignez la communauté Supway et aidez les jeunes sortant de rhéto à trouver leur chemin.
         </p>
 
        
-        <div class="d-flex">
-        <a class="btn-rejoignez" href="<?php echo esc_url(get_permalink(get_page_by_path('/contact'))); ?>"> Nous contacter</a>
-         
+        <div class="d-flex" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
+        <a class="btn-rejoignez" href="mailto:supway@gmail.com">Rejoignez-nous !</a>
         </div>
       </div>
 
      
-      <div class="col-12 col-lg-6 d-flex justify-content-center image-container">
-        <img class="img-fluid"  src="<?php echo get_template_directory_uri(); ?>/student-with-smartphone 1.svg" alt="Student Image">
+      <div class="col-12 col-lg-6 d-flex justify-content-center image-container" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
+        <img id="image" class="img-fluid"  src="<?php echo get_template_directory_uri(); ?>/student-with-smartphone 1.svg" alt="Student with smartphone">
       </div>
     </div>
   </div>
@@ -74,14 +75,14 @@
   <div class="container-fluid">
     <div class="row align-items-center">
 
-    <div class="col-12 col-lg-6 d-flex justify-content-center image-container order-2 order-md-2 order-lg-1">
+    <div class="col-12 col-lg-6 d-flex justify-content-center image-container order-2 order-md-2 order-lg-1" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
         <img 
-          class="img-fluid" 
-          src="<?php echo get_template_directory_uri(); ?>/assets/img/conseiller-avec-pc.svg" 
+          class="img-fluid pt-5" 
+          src="<?php echo get_template_directory_uri(); ?>/conseiller-avec-pc.svg" alt="conseiller avec un pc" 
           >
       </div>
      
-      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container order-1 order-md-1 order-lg-2">
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container order-1 order-md-1 order-lg-2" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
         <h2 class="titre-homepage">...inspirez des futurs étudiants</h2>
         <p class="corps-texte ">
         Avec votre expertise, guidez la nouvelle génération dans leurs choix d'études et démarches. 
@@ -104,7 +105,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card-objectifs align-items-center mb-5">
-                        <p class="card-text mt-4 ms-3 me-3">
+                        <p class="card-text text-center mt-4 ms-3 me-3">
                             Orienter les jeunes avec un quiz personnalisé qui recommande des filières et formations adaptées à leur profil.
                         </p>
                         <div>
@@ -115,7 +116,7 @@
                
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card-objectifs align-items-center mb-5">
-                        <p class="card-text mt-4 ms-3 me-3">
+                        <p class="card-text text-center mt-4 ms-3 me-3">
                             Offrir une aide individuelle à chaque étudiant(e) avec des conseillers prêts à les guider au mieux.
                         </p>
                         <img id="picto1" src="<?php echo get_template_directory_uri(); ?>/question.svg" alt="Question">
@@ -124,7 +125,7 @@
              
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card-objectifs align-items-center mb-5">
-                        <p class="card-text mt-4 ms-3 me-3">
+                        <p class="card-text text-center mt-4 ms-3 me-3">
                             Créer une communauté d’étudiants qui partagent leurs expériences pour inspirer autrui.
                         </p>
                         <img id="picto1" src="<?php echo get_template_directory_uri(); ?>/community.svg" alt="Communauté">
@@ -134,28 +135,29 @@
         </div>
     </div>
 </section>
+ 
 
 <section class="section-index">
   <div class="container-fluid">
     <div class="row  align-items-center">
 
      
-      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container">
+      <div class="col-12 col-lg-6 d-flex flex-column align-items-start text-container" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
        
-        <p class="corps-texte">
+        <p class="corps-texte pt-5">
         Inscris-toi sur Supway pour accéder à un quiz d’orientation personnalisé et des conseillers 
         prêts à t’accompagner. Fais le premier pas vers ta réussite !
         </p>
       </div>
-      <div class="col-12 col-lg-6  d-flex flex-column align-items-start text-container">
-                <img class="img-fluid2" src="<?php echo get_template_directory_uri(); ?>/assets/img/étudiant-avec-conseiller.svg">
+      <div class="col-12 col-lg-6  d-flex flex-column align-items-start text-container" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
+                <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/étudiant-avec-conseiller.svg" alt="étudiant avec conseiller">
+          </div>
+        </div>
       </div>
-
-
     </div>
-  </div>
-</section>
+    </section>
+          
+  
+       
 
-    
-   <?php get_footer(); ?>
-    
+<?php get_footer(); ?>
