@@ -1,5 +1,15 @@
 <?php 
 
+add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
+function enqueue_aos_scripts() {
+
+  wp_enqueue_style('aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css', array(), '2.3.1');
+  
+  wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), '2.3.1', true);
+  
+  wp_add_inline_script('aos-js', 'AOS.init();');
+}
+
 function styles_scripts()
 {
   wp_enqueue_style(
